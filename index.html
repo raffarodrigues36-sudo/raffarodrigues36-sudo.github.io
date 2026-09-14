@@ -1,5 +1,4 @@
 
-Com certeza! 📋 Aqui está o código completo — é só copiar tudo e colar ali dentro! ✅
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,35 +11,33 @@ Com certeza! 📋 Aqui está o código completo — é só copiar tudo e colar a
         body{color:var(--preto);background:var(--branco);line-height:1.6}
         header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}
         .logo{font-size:1.4rem;font-weight:700;letter-spacing:2px;color:var(--preto);text-decoration:none}
-        nav a{margin-left:2rem;color:var(--preto);text-decoration:none;font-size:.95rem;transition:color .3s}
+        nav a{margin-left:2rem;color:var(--preto);text-decoration:none;font-size:.95rem}
         nav a:hover{color:var(--dourado)}
-        .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url('https://images.unsplash.com/photo-1519741497674-611481863550?w=1600') center/cover no-repeat;color:white;padding:2rem}
+        .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem}
         .hero h1{font-size:3.5rem;margin-bottom:1rem;letter-spacing:4px}
         .hero p{font-size:1.3rem;margin-bottom:2rem;opacity:.9}
-        .btn{padding:.9rem 2.5rem;background:var(--dourado);color:white;text-decoration:none;font-weight:500;transition:transform .3s,background .3s}
+        .btn{padding:.9rem 2.5rem;background:var(--dourado);color:white;text-decoration:none;border-radius:2px;transition:transform .3s}
         .btn:hover{background:#b5a47b;transform:translateY(-2px)}
         section{padding:6rem 5%}
         .sobre{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
         .sobre-img{width:100%;height:500px;object-fit:cover;background:var(--cinza)}
         h2{font-size:2.2rem;margin-bottom:2rem;position:relative}
-        h2::after{content:'';position:absolute;bottom:-10px;left:0;width:60px;height:3px;background:var(--dourado)}
+        h2::after{content:'';position:absolute;bottom:-10px;left:0;width:60px;height:4px;background:var(--dourado)}
         .categorias{text-align:center}
         .categorias h2{display:inline-block}
-        .grid-categorias{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:4rem}
-        .categoria{position:relative;height:350px;overflow:hidden;cursor-pointer}
+        .grid-categorias{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:4rem}
+        .categoria{position:relative;height:350px;overflow:hidden;cursor-pointer;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:transform .3s}
         .categoria img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
         .categoria:hover img{transform:scale(1.1)}
-        .categoria-nome{position:absolute;bottom:0;left:0;width:100%;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.7));color:white;font-size:1.4rem;font-weight:600}
-        .contato{background:var(--cinza);text-align:center}
-        .contato p{font-size:1.1rem;margin:1rem 0 2rem}
-        .links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
-        .links a{color:var(--preto);font-size:1.1rem;text-decoration:none;padding:.8rem 1.5rem;border:1px solid var(--preto);transition:all .3s}
-        .links a:hover{background:var(--preto);color:white}
-        footer{background:var(--preto);color:white;text-align:center;padding:2rem;font-size:.9rem}
+        .categoria-nome{position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.7));color:white;font-size:1.4rem;font-weight:600}
+        footer{background:var(--preto);color:white;text-align:center;padding:4rem 5%}
+        footer p{margin-bottom:1rem;opacity:.7}
+        .redes{margin-top:2rem}
+        .redes a{color:var(--dourado);margin:0 1rem;font-size:1.2rem;text-decoration:none}
         @media(max-width:768px){
-            nav{display:none}
-            .hero h1{font-size:2rem}
+            .hero h1{font-size:2.2rem}
             .sobre{grid-template-columns:1fr}
+            nav a{margin-left:1rem}
         }
     </style>
 </head>
@@ -50,64 +47,98 @@ Com certeza! 📋 Aqui está o código completo — é só copiar tudo e colar a
     <a href="#" class="logo">RAFFA RODRIGUES</a>
     <nav>
         <a href="#inicio">Início</a>
+        <a href="#portfolio">Portfólio</a>
         <a href="#sobre">Sobre</a>
-        <a href="#trabalhos">Trabalhos</a>
         <a href="#contato">Contato</a>
     </nav>
 </header>
 
 <section class="hero" id="inicio">
     <h1>RAFFA RODRIGUES</h1>
-    <p>Fotógrafo de Casamentos, Eventos, Infantis e Urbanos</p>
-    <a href="#trabalhos" class="btn">Ver Portfólio</a>
+    <p>Fotógrafo Profissional — Registrando momentos únicos</p>
+    <a href="#portfolio" class="btn">Ver Portfólio</a>
+</section>
+
+<section class="categorias" id="portfolio">
+    <h2>Meu Portfólio</h2>
+    <div class="grid-categorias">
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/c8b68c/ffffff?text=Casamento" alt="Casamento">
+            <div class="categoria-nome">Casamento</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/333333/ffffff?text=Eventos+Corporativos" alt="Eventos Corporativos">
+            <div class="categoria-nome">Eventos Corporativos</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/555555/ffffff?text=Eventos+Executivos" alt="Eventos Executivos">
+            <div class="categoria-nome">Eventos Executivos</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/777777/ffffff?text=Ensaio+Masculino" alt="Ensaio Masculino">
+            <div class="categoria-nome">Ensaio Masculino</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/999999/ffffff?text=Ensaio+Feminino" alt="Ensaio Feminino">
+            <div class="categoria-nome">Ensaio Feminino</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/444444/ffffff?text=Eventos+Esportivos" alt="Eventos Esportivos">
+            <div class="categoria-nome">Eventos Esportivos</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/666666/ffffff?text=Ensaio+de+Casal" alt="Ensaio de Casal">
+            <div class="categoria-nome">Ensaio de Casal</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/888888/ffffff?text=Aniversário+Infantil" alt="Aniversário Infantil">
+            <div class="categoria-nome">Aniversário Infantil</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/222222/ffffff?text=Formatura" alt="Formatura">
+            <div class="categoria-nome">Formatura</div>
+        </div>
+
+        <div class="categoria">
+            <img src="https://via.placeholder.com/400x350/c8b68c/ffffff?text=Retratos" alt="Retratos">
+            <div class="categoria-nome">Retratos</div>
+        </div>
+
+    </div>
 </section>
 
 <section class="sobre" id="sobre">
     <div>
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Sobre mim" class="sobre-img">
+        <img src="https://via.placeholder.com/500x600/f5f5f5/0a0a0a?text=Sobre+Mim" alt="Raffa Rodrigues" class="sobre-img">
     </div>
     <div>
         <h2>Sobre Mim</h2>
-        <p>Sou fotógrafo apaixonado por capturar momentos únicos e verdadeiros. Com anos de experiência, especializo-me em registrar emoções, histórias e detalhes que fazem cada momento especial.</p>
+        <p>Sou Raffa Rodrigues, fotógrafo apaixonado por capturar emoções e momentos únicos. Com olhar atento e dedicação, transformo cada instante em memória eterna.</p>
         <br>
-        <p>Trabalho com casamentos, eventos sociais, ensaios infantis e fotografia urbana. Meu estilo é natural, autêntico e atemporal — para que suas memórias permaneçam vivas para sempre.</p>
+        <p>Especializado em diversas áreas, ofereço trabalho personalizado para cada tipo de evento e ensaio. Qualidade, profissionalismo e paixão em cada clique.</p>
     </div>
 </section>
 
-<section class="categorias" id="trabalhos">
-    <h2>Meus Trabalhos</h2>
-    <div class="grid-categorias">
-        <div class="categoria">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863550?w=800" alt="Casamentos">
-            <div class="categoria-nome">💍 Casamentos</div>
-        </div>
-        <div class="categoria">
-            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="Eventos">
-            <div class="categoria-nome">🎉 Eventos</div>
-        </div>
-        <div class="categoria">
-            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800" alt="Infantis">
-            <div class="categoria-nome">👶 Infantis</div>
-        </div>
-        <div class="categoria">
-            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800" alt="Urbanos">
-            <div class="categoria-nome">🏙️ Urbanos</div>
-        </div>
-    </div>
-</section>
-
-<section class="contato" id="contato">
+<footer id="contato">
     <h2>Contato</h2>
-    <p>Vamos conversar sobre seu projeto? Me chame!</p>
-    <div class="links">
-        <a href="https://wa.me/5511999999999" target="_blank">📱 WhatsApp</a>
-        <a href="https://instagram.com/seuusuario" target="_blank">📸 Instagram</a>
-        <a href="mailto:seuemail@gmail.com">✉️ seuemail@gmail.com</a>
+    <p>📧 raffa_rodrigues@email.com</p>
+    <p>📱 (11) 9XXXX-XXXX</p>
+    <p>📍 Santo André — SP | Atendo toda a região</p>
+    <div class="redes">
+        <a href="#">📷 Instagram</a>
+        <a href="#">💬 WhatsApp</a>
     </div>
-</section>
-
-<footer>
-    <p>© 2026 Raffa Rodrigues Fotografia — Todos os direitos reservados</p>
+    <br><br>
+    <p>&copy; 2026 Raffa Rodrigues Fotografia. Todos os direitos reservados.</p>
 </footer>
 
 </body>
