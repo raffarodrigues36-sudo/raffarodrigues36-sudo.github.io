@@ -1,0 +1,113 @@
+Com certeza! 📋 Aqui está o código completo — é só copiar tudo e colar ali dentro! ✅
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffa Rodrigues | Fotógrafo</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+        :root{--preto:#0a0a0a;--branco:#fff;--dourado:#c8b68c;--cinza:#f5f5f5}
+        body{color:var(--preto);background:var(--branco);line-height:1.6}
+        header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+        .logo{font-size:1.4rem;font-weight:700;letter-spacing:2px;color:var(--preto);text-decoration:none}
+        nav a{margin-left:2rem;color:var(--preto);text-decoration:none;font-size:.95rem;transition:color .3s}
+        nav a:hover{color:var(--dourado)}
+        .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url('https://images.unsplash.com/photo-1519741497674-611481863550?w=1600') center/cover no-repeat;color:white;padding:2rem}
+        .hero h1{font-size:3.5rem;margin-bottom:1rem;letter-spacing:4px}
+        .hero p{font-size:1.3rem;margin-bottom:2rem;opacity:.9}
+        .btn{padding:.9rem 2.5rem;background:var(--dourado);color:white;text-decoration:none;font-weight:500;transition:transform .3s,background .3s}
+        .btn:hover{background:#b5a47b;transform:translateY(-2px)}
+        section{padding:6rem 5%}
+        .sobre{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .sobre-img{width:100%;height:500px;object-fit:cover;background:var(--cinza)}
+        h2{font-size:2.2rem;margin-bottom:2rem;position:relative}
+        h2::after{content:'';position:absolute;bottom:-10px;left:0;width:60px;height:3px;background:var(--dourado)}
+        .categorias{text-align:center}
+        .categorias h2{display:inline-block}
+        .grid-categorias{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:4rem}
+        .categoria{position:relative;height:350px;overflow:hidden;cursor-pointer}
+        .categoria img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .categoria:hover img{transform:scale(1.1)}
+        .categoria-nome{position:absolute;bottom:0;left:0;width:100%;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,.7));color:white;font-size:1.4rem;font-weight:600}
+        .contato{background:var(--cinza);text-align:center}
+        .contato p{font-size:1.1rem;margin:1rem 0 2rem}
+        .links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+        .links a{color:var(--preto);font-size:1.1rem;text-decoration:none;padding:.8rem 1.5rem;border:1px solid var(--preto);transition:all .3s}
+        .links a:hover{background:var(--preto);color:white}
+        footer{background:var(--preto);color:white;text-align:center;padding:2rem;font-size:.9rem}
+        @media(max-width:768px){
+            nav{display:none}
+            .hero h1{font-size:2rem}
+            .sobre{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">RAFFA RODRIGUES</a>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <h1>RAFFA RODRIGUES</h1>
+    <p>Fotógrafo de Casamentos, Eventos, Infantis e Urbanos</p>
+    <a href="#trabalhos" class="btn">Ver Portfólio</a>
+</section>
+
+<section class="sobre" id="sobre">
+    <div>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Sobre mim" class="sobre-img">
+    </div>
+    <div>
+        <h2>Sobre Mim</h2>
+        <p>Sou fotógrafo apaixonado por capturar momentos únicos e verdadeiros. Com anos de experiência, especializo-me em registrar emoções, histórias e detalhes que fazem cada momento especial.</p>
+        <br>
+        <p>Trabalho com casamentos, eventos sociais, ensaios infantis e fotografia urbana. Meu estilo é natural, autêntico e atemporal — para que suas memórias permaneçam vivas para sempre.</p>
+    </div>
+</section>
+
+<section class="categorias" id="trabalhos">
+    <h2>Meus Trabalhos</h2>
+    <div class="grid-categorias">
+        <div class="categoria">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863550?w=800" alt="Casamentos">
+            <div class="categoria-nome">💍 Casamentos</div>
+        </div>
+        <div class="categoria">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="Eventos">
+            <div class="categoria-nome">🎉 Eventos</div>
+        </div>
+        <div class="categoria">
+            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800" alt="Infantis">
+            <div class="categoria-nome">👶 Infantis</div>
+        </div>
+        <div class="categoria">
+            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800" alt="Urbanos">
+            <div class="categoria-nome">🏙️ Urbanos</div>
+        </div>
+    </div>
+</section>
+
+<section class="contato" id="contato">
+    <h2>Contato</h2>
+    <p>Vamos conversar sobre seu projeto? Me chame!</p>
+    <div class="links">
+        <a href="https://wa.me/5511999999999" target="_blank">📱 WhatsApp</a>
+        <a href="https://instagram.com/seuusuario" target="_blank">📸 Instagram</a>
+        <a href="mailto:seuemail@gmail.com">✉️ seuemail@gmail.com</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Raffa Rodrigues Fotografia — Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>
