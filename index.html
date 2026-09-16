@@ -1,76 +1,126 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Raffa Rodrigues | Fotógrafo</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-:root{--preto:#000;--branco:#fff;--dourado:#c8b68c}
-body{background:var(--branco);color:var(--preto);line-height:1.6}
-header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.logo{font-size:1.4rem;font-weight:700;letter-spacing:2px;color:var(--preto);text-decoration:none}
-nav a{margin-left:1.5rem;color:var(--preto);text-decoration:none}
-nav a:hover{color:var(--dourado)}
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem}
-.hero h1{font-size:3rem;margin-bottom:1rem;letter-spacing:4px}
-.hero p{font-size:1.2rem;margin-bottom:2rem}
-.btn{padding:.9rem 2.5rem;background:var(--dourado);color:white;text-decoration:none;border-radius:2px}
-.btn:hover{background:#b5a47b}
-section{padding:5rem 5%}
-h2{font-size:2rem;margin-bottom:2rem;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.item{height:300px;background:var(--dourado);display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;font-weight:600;border-radius:4px}
-footer{background:var(--preto);color:white;text-align:center;padding:3rem 5%}
-footer p{margin:.5rem 0}
-footer a{color:var(--dourado);text-decoration:none;margin:0 .5rem}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafa.Mídia | Fotografia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { color: #333; line-height: 1.6; }
+        
+        /* CABEÇALHO */
+        header { background: #000; color: white; padding: 20px 5%; position: fixed; width: 100%; top: 0; z-index: 100; }
+        .logo { font-size: 28px; font-weight: bold; text-decoration: none; color: white; }
+        .logo span { color: #d4af37; }
+        nav { float: right; margin-top: 5px; }
+        nav a { color: white; margin-left: 25px; text-decoration: none; font-size: 16px; }
+        nav a:hover { color: #d4af37; }
+        
+        /* FOTO DE ENTRADA */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero h1 { font-size: 55px; margin-bottom: 20px; }
+        .hero h1 span { color: #d4af37; }
+        .hero p { font-size: 22px; margin-bottom: 30px; }
+        .btn { background: #d4af37; color: white; padding: 15px 40px; text-decoration: none; font-size: 18px; border-radius: 5px; transition: 0.3s; }
+        .btn:hover { background: #b8860b; }
+        
+        /* QUEM SOU EU */
+        .sobre { padding: 100px 5%; background: #f9f9f9; }
+        .sobre-container { display: flex; align-items: center; gap: 50px; max-width: 1200px; margin: 0 auto; }
+        .sobre-img { width: 400px; height: 500px; background: #ddd; border-radius: 10px; object-fit: cover; }
+        .sobre-texto h2 { font-size: 36px; margin-bottom: 20px; color: #222; }
+        .sobre-texto h2 span { color: #d4af37; }
+        .sobre-texto p { font-size: 18px; margin-bottom: 15px; text-align: justify; }
+        
+        /* ÁLBUNS / CATEGORIAS */
+        .albuns { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+        .albuns h2 { text-align: center; font-size: 36px; margin-bottom: 50px; }
+        .albuns h2 span { color: #d4af37; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .album { height: 250px; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), #444; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 500; cursor: pointer; transition: 0.3s; text-align: center; padding: 10px; }
+        .album:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        /* CONTATO */
+        .contato { padding: 80px 5%; background: #000; color: white; text-align: center; }
+        .contato h2 { font-size: 36px; margin-bottom: 30px; }
+        .contato p { font-size: 18px; margin-bottom: 10px; }
+        .contato a { color: #d4af37; text-decoration: none; }
+        
+        /* RODAPÉ */
+        footer { background: #111; color: #888; text-align: center; padding: 20px; font-size: 14px; }
+        
+        /* RESPONSIVO */
+        @media(max-width: 900px) {
+            .sobre-container { flex-direction: column; }
+            .hero h1 { font-size: 35px; }
+            nav { display: none; }
+        }
+    </style>
 </head>
 <body>
 
+<!-- CABEÇALHO -->
 <header>
-<a href="#" class="logo">RAFFA RODRIGUES</a>
-<nav>
-<a href="#inicio">Início</a>
-<a href="#portfolio">Portfólio</a>
-<a href="#contato">Contato</a>
-</nav>
+    <a href="#" class="logo">RAFA.<span>MÍDIA</span></a>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#albuns">Trabalhos</a>
+        <a href="#contato">Contato</a>
+    </nav>
 </header>
 
+<!-- FOTO DE ENTRADA -->
 <section class="hero" id="inicio">
-<h1>RAFFA RODRIGUES</h1>
-<p>Fotógrafo Profissional — Registrando momentos únicos</p>
-<a href="#portfolio" class="btn">Ver Portfólio</a>
+    <div>
+        <h1>RAFA.<span>MÍDIA</span></h1>
+        <p>Fotografia que captura emoções e eterniza momentos</p>
+        <a href="#albuns" class="btn">VER MEU TRABALHO</a>
+    </div>
 </section>
 
-<section id="portfolio">
-<h2>Meu Portfólio</h2>
-<div class="grid">
-<div class="item">Casamento</div>
-<div class="item">Eventos Corporativos</div>
-<div class="item">Eventos Executivos</div>
-<div class="item">Ensaio Masculino</div>
-<div class="item">Ensaio Feminino</div>
-<div class="item">Eventos Esportivos</div>
-<div class="item">Ensaio de Casal</div>
-<div class="item">Aniversário Infantil</div>
-<div class="item">Formatura</div>
-<div class="item">Retratos</div>
-</div>
+<!-- QUEM SOU EU -->
+<section class="sobre" id="sobre">
+    <div class="sobre-container">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" class="sobre-img" alt="Rafa Rodrigues - Fotógrafo">
+        <div class="sobre-texto">
+            <h2>Quem Sou <span>Eu</span></h2>
+            <p>Olá! Eu sou o <strong>Rafa Rodrigues</strong>, fotógrafo apaixonado por capturar os momentos mais especiais da vida. Cada clique é feito com dedicação, buscando sempre a essência e a emoção de cada instante.</p>
+            <p>Especializado em fotografia de casamentos, eventos, ensaios e muito mais. Trabalho para entregar não apenas fotos, mas memórias que durarão para sempre.</p>
+            <p>📸 Sua história, registrada com amor e profissionalismo.</p>
+        </div>
+    </div>
 </section>
 
-<section id="contato">
-<h2>Contato</h2>
-<div style="text-align:center;font-size:1.1rem;line-height:2">
-<p>📧 Rafa27crush@hotmail.com</p>
-<p>📱 WhatsApp: (11) 93908-5800</p>
-<p>📍 Santo André — SP | Atendo toda a região</p>
-<p><a href="https://www.instagram.com/raffaframes" target="_blank">📷 Instagram</a> | <a href="https://wa.me/5511939085800" target="_blank">💬 WhatsApp</a></p>
-</div>
+<!-- ÁLBUNS / CATEGORIAS -->
+<section class="albuns" id="albuns">
+    <h2>Meus <span>Trabalhos</span></h2>
+    <div class="grid">
+        <div class="album">💍 Casamento</div>
+        <div class="album">🏢 Eventos Corporativos</div>
+        <div class="album">🎩 Eventos Executivos</div>
+        <div class="album">👨 Ensaios Masculinos</div>
+        <div class="album">👩 Ensaios Femininos</div>
+        <div class="album">⚽ Eventos Esportivos</div>
+        <div class="album">💑 Ensaios de Casal</div>
+        <div class="album">🎂 Aniversário Infantil</div>
+        <div class="album">🎓 Formatura</div>
+        <div class="album">📸 Retratos</div>
+    </div>
 </section>
 
+<!-- CONTATO -->
+<section class="contato" id="contato">
+    <h2>Entre em <span>Contato</span></h2>
+    <p>📧 Email: <a href="mailto:rafa27crush@hotmail.com">rafa27crush@hotmail.com</a></p>
+    <p>📱 WhatsApp: <a href="https://wa.me/5511939085800">(11) 93908-5800</a></p>
+    <p>📷 Instagram: <a href="https://instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
+</section>
+
+<!-- RODAPÉ -->
 <footer>
-<p>&copy; 2026 Raffa Rodrigues Fotografia. Todos os direitos reservados.</p>
+    <p>© 2026 Rafa.Mídia Fotografia. Todos os direitos reservados.</p>
 </footer>
 
 </body>
