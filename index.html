@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,122 +5,295 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafa.Mídia | Fotografia</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { color: #333; line-height: 1.6; }
-        
-        header { background: rgba(0,0,0,0.6); color: white; padding: 20px 5%; position: fixed; width: 100%; top: 0; z-index: 100; backdrop-filter: blur(10px); }
-        .logo { font-size: 28px; font-weight: bold; text-decoration: none; color: white; }
-        .logo span { color: #ffd700; }
-        nav { float: right; margin-top: 5px; }
-        nav a { color: white; margin-left: 25px; text-decoration: none; font-size: 16px; }
-        nav a:hover { color: #ffd700; }
-        
-        .hero { 
-            height: 100vh; 
-            background: linear-gradient(rgba(255,255,255,0.15), rgba(0,0,0,0.45)), url('Capa.jpg'); 
-            background-size: cover; 
-            background-position: center center; 
-            background-attachment: fixed;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            color: white; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
         }
-        .hero h1 { font-size: 65px; margin-bottom: 15px; text-shadow: 2px 4px 15px rgba(0,0,0,0.4); letter-spacing: 8px; }
-        .hero h1 span { color: #ffd700; }
-        .hero p { font-size: 24px; margin-bottom: 40px; text-shadow: 1px 2px 10px rgba(0,0,0,0.4); font-weight: 300; }
-        .btn { background: linear-gradient(135deg, #ffd700, #daa520); color: white; padding: 16px 45px; text-decoration: none; font-size: 18px; border-radius: 50px; transition: 0.4s; box-shadow: 0 5px 20px rgba(218,165,32,0.4); border: none; font-weight: 600; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(218,165,32,0.5); }
         
-        .sobre { padding: 100px 5%; background: #f9f9f9; }
-        .sobre-container { display: flex; align-items: center; gap: 50px; max-width: 1200px; margin: 0 auto; }
-        .sobre-img { width: 400px; height: 500px; background: #ddd; border-radius: 12px; object-fit: cover; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
-        .sobre-texto h2 { font-size: 36px; margin-bottom: 20px; color: #222; }
-        .sobre-texto h2 span { color: #daa520; }
-        .sobre-texto p { font-size: 18px; margin-bottom: 15px; text-align: justify; }
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
         
-        .albuns { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-        .albuns h2 { text-align: center; font-size: 36px; margin-bottom: 50px; }
-        .albuns h2 span { color: #daa520; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .album { height: 250px; background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), linear-gradient(135deg, #333, #555); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 500; cursor: pointer; transition: 0.4s; text-align: center; padding: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .album:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); background: linear-gradient(180deg, rgba(255,215,0,0.1), rgba(0,0,0,0.6)), linear-gradient(135deg, #444, #666); }
+        header {
+            background: rgba(0,0,0,0.6);
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
         
-        .contato { padding: 80px 5%; background: linear-gradient(135deg, #111, #222); color: white; text-align: center; }
-        .contato h2 { font-size: 36px; margin-bottom: 30px; }
-        .contato h2 span { color: #ffd700; }
-        .contato p { font-size: 18px; margin-bottom: 10px; }
-        .contato a { color: #ffd700; text-decoration: none; transition: 0.3s; }
-        .contato a:hover { color: white; }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
         
-        footer { background: #000; color: #888; text-align: center; padding: 20px; font-size: 14px; }
+        .logo span {
+            color: #ffd700;
+        }
+        
+        nav {
+            float: right;
+            margin-top: 5px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ffd700;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.45)), url('Capa.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 65px;
+            margin-bottom: 15px;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.4);
+            letter-spacing: 8px;
+        }
+        
+        .hero-content h1 span {
+            color: #ffd700;
+        }
+        
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            text-shadow: 1px 2px 10px rgba(0,0,0,0.4);
+            font-weight: 300;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #ffd700, #daa520);
+            color: white;
+            padding: 16px 45px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: 0.4s;
+            box-shadow: 0 5px 20px rgba(218,165,32,0.4);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(218,165,32,0.5);
+        }
+        
+        section {
+            padding: 100px 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #222;
+        }
+        
+        .section-title span {
+            color: #daa520;
+        }
+        
+        .sobre-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        
+        .sobre-img {
+            width: 400px;
+            height: 500px;
+            background: #ddd;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .sobre-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .sobre-texto h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .sobre-texto h2 span {
+            color: #daa520;
+        }
+        
+        .sobre-texto p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .servico-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .servico-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .servico-card h3 {
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        
+        .contato {
+            background: linear-gradient(135deg, #111, #222);
+            color: white;
+            text-align: center;
+        }
+        
+        .contato h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        .contato h2 span {
+            color: #ffd700;
+        }
+        
+        .contato-info p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .contato-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        
+        footer {
+            background: #000;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
         
         @media(max-width: 900px) {
-            .sobre-container { flex-direction: column; }
-            .hero h1 { font-size: 40px; letter-spacing: 4px; }
-            .hero p { font-size: 18px; }
-            nav { display: none; }
+            .sobre-container {
+                flex-direction: column;
+            }
+            .hero-content h1 {
+                font-size: 40px;
+                letter-spacing: 4px;
+            }
+            nav {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="#" class="logo">RAFA.<span>MÍDIA</span></a>
+    <a href="#" class="logo">rafa<span>.</span>mídia</a>
     <nav>
         <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#albuns">Trabalhos</a>
+        <a href="#sobre">Quem Sou</a>
+        <a href="#servicos">Serviços</a>
         <a href="#contato">Contato</a>
     </nav>
 </header>
 
 <section class="hero" id="inicio">
-    <div>
-        <h1>RAFA.<span>MÍDIA</span></h1>
-        <p>Fotografia que captura emoções e eterniza momentos</p>
-        <a href="#albuns" class="btn">VER MEU TRABALHO</a>
+    <div class="hero-content">
+        <h1>RAFA<span>.</span>MÍDIA</h1>
+        <p>Fotografia profissional que conta histórias</p>
+        <a href="#contato" class="btn">Solicitar Orçamento</a>
     </div>
 </section>
 
-<section class="sobre" id="sobre">
+<section id="sobre">
+    <h2 class="section-title">Quem <span>Sou</span></h2>
     <div class="sobre-container">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" class="sobre-img" alt="Rafa Rodrigues - Fotógrafo">
+        <img src="https://images.unsplash.com/photo-1554048612-b6a4824bc74e?w=500" class="sobre-img" alt="Rafa Rodrigues - Fotógrafo">
         <div class="sobre-texto">
-            <h2>Quem Sou <span>Eu</span></h2>
-            <p>Olá! Eu sou o <strong>Rafa Rodrigues</strong>, fotógrafo apaixonado por capturar os momentos mais especiais da vida. Cada clique é feito com dedicação, buscando sempre a essência e a emoção de cada instante.</p>
-            <p>Especializado em fotografia de casamentos, eventos, ensaios e muito mais. Trabalho para entregar não apenas fotos, mas memórias que durarão para sempre.</p>
+            <h2>Rafa Rodrigues <span>| Fotógrafo</span></h2>
+            <p>Sou fotógrafo apaixonado por capturar momentos únicos e verdadeiros. Cada clique é pensado para registrar emoções, detalhes e histórias que ficarão para sempre.</p>
+            <p>Trabalho com casamentos, eventos corporativos, ensaios e muito mais. Minha missão é entregar imagens que te emocionem toda vez que você olhar.</p>
             <p>📸 Sua história, registrada com amor e profissionalismo.</p>
         </div>
     </div>
 </section>
 
-<section class="albuns" id="albuns">
-    <h2>Meus <span>Trabalhos</span></h2>
-    <div class="grid">
-        <div class="album">💍 Casamento</div>
-        <div class="album">🏢 Eventos Corporativos</div>
-        <div class="album">🎩 Eventos Executivos</div>
-        <div class="album">👨 Ensaios Masculinos</div>
-        <div class="album">👩 Ensaios Femininos</div>
-        <div class="album">⚽ Eventos Esportivos</div>
-        <div class="album">💑 Ensaios de Casal</div>
-        <div class="album">🎂 Aniversário Infantil</div>
-        <div class="album">🎓 Formatura</div>
-        <div class="album">📸 Retratos</div>
+<section id="servicos" style="background: #f9f9f9;">
+    <h2 class="section-title">Meus <span>Serviços</span></h2>
+    <div class="servicos-grid">
+        <div class="servico-card"><h3>💍 Casamento</h3></div>
+        <div class="servico-card"><h3>🏢 Eventos Corporativos</h3></div>
+        <div class="servico-card"><h3>🏆 Eventos Executivos</h3></div>
+        <div class="servico-card"><h3>👤 Ensaio Masculino</h3></div>
+        <div class="servico-card"><h3>👩 Ensaio Feminino</h3></div>
+        <div class="servico-card"><h3>⚽ Eventos Esportivos</h3></div>
+        <div class="servico-card"><h3>💑 Ensaio de Casal</h3></div>
+        <div class="servico-card"><h3>🎂 Aniversário Infantil</h3></div>
+        <div class="servico-card"><h3>🎓 Formatura</h3></div>
+        <div class="servico-card"><h3>📸 Retratos</h3></div>
     </div>
 </section>
 
 <section class="contato" id="contato">
     <h2>Entre em <span>Contato</span></h2>
-    <p>📧 Email: <a href="mailto:rafa27crush@hotmail.com">rafa27crush@hotmail.com</a></p>
-    <p>📱 WhatsApp: <a href="https://wa.me/5511939085800">(11) 93908-5800</a></p>
-    <p>📷 Instagram: <a href="https://instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
+    <div class="contato-info">
+        <p>📧 Email: <a href="mailto:rafa27crush@hotmail.com">rafa27crush@hotmail.com</a></p>
+        <p>📱 Telefone/WhatsApp: <a href="tel:+5511939085800">(11) 93908-5800</a></p>
+        <p>📷 Instagram: <a href="https://www.instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
+    </div>
 </section>
 
 <footer>
-    <p>© 2026 Rafa.Mídia Fotografia. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Rafa.Mídia - Todos os direitos reservados | Fotografia Profissional</p>
 </footer>
 
 </body>
