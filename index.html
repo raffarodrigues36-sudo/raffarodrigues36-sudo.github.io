@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -174,6 +175,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             text-align: center;
             transition: 0.3s;
+            cursor: pointer;
         }
         
         .servico-card:hover {
@@ -185,6 +187,48 @@
             font-size: 20px;
             color: #222;
             margin-bottom: 10px;
+        }
+        
+        .galeria-section {
+            display: none;
+        }
+        
+        .galeria-section.active {
+            display: block;
+        }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .galeria-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .galeria-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .voltar-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #daa520;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .voltar-btn:hover {
+            text-decoration: underline;
         }
         
         .contato {
@@ -269,8 +313,9 @@
 
 <section id="servicos" style="background: #f9f9f9;">
     <h2 class="section-title">Meus <span>Serviços</span></h2>
-    <div class="servicos-grid">
-        <div class="servico-card"><h3>💍 Casamento</h3></div>
+    
+    <div id="lista-servicos" class="servicos-grid">
+        <div class="servico-card" onclick="mostrarGaleria('casamento')"><h3>💍 Casamento</h3></div>
         <div class="servico-card"><h3>🏢 Eventos Corporativos</h3></div>
         <div class="servico-card"><h3>🏆 Eventos Executivos</h3></div>
         <div class="servico-card"><h3>👤 Ensaio Masculino</h3></div>
@@ -280,6 +325,20 @@
         <div class="servico-card"><h3>🎂 Aniversário Infantil</h3></div>
         <div class="servico-card"><h3>🎓 Formatura</h3></div>
         <div class="servico-card"><h3>📸 Retratos</h3></div>
+    </div>
+    
+    <!-- GALERIA DE CASAMENTO — CASAMENTO 6 É A PRIMEIRA! -->
+    <div id="galeria-casamento" class="galeria-section">
+        <span class="voltar-btn" onclick="voltarServicos()">← Voltar aos Serviços</span>
+        <h2 class="section-title">💍 Casamento</h2>
+        <div class="galeria-grid">
+            <img src="casamento6.jpg" class="galeria-img" alt="Foto de Casamento">
+            <img src="casamento3.jpg" class="galeria-img" alt="Foto de Casamento">
+            <img src="casamento4.jpg" class="galeria-img" alt="Foto de Casamento">
+            <img src="casamento5.jpg" class="galeria-img" alt="Foto de Casamento">
+            <img src="casamento7.jpg" class="galeria-img" alt="Foto de Casamento">
+            <img src="casamento8.jpg" class="galeria-img" alt="Foto de Casamento">
+        </div>
     </div>
 </section>
 
@@ -295,6 +354,19 @@
 <footer>
     <p>&copy; 2025 Rafa.Mídia - Todos os direitos reservados | Fotografia Profissional</p>
 </footer>
+
+<script>
+function mostrarGaleria(nome) {
+    document.getElementById('lista-servicos').style.display = 'none';
+    document.getElementById('galeria-' + nome).classList.add('active');
+    window.scrollTo({ top: document.getElementById('servicos').offsetTop, behavior: 'smooth' });
+}
+
+function voltarServicos() {
+    document.querySelectorAll('.galeria-section').forEach(g => g.classList.remove('active'));
+    document.getElementById('lista-servicos').style.display = 'grid';
+}
+</script>
 
 </body>
 </html>
