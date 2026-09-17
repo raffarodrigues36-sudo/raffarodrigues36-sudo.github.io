@@ -211,6 +211,7 @@
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: 0.3s;
+            cursor: pointer;
         }
         
         .galeria-img:hover {
@@ -228,6 +229,42 @@
         
         .voltar-btn:hover {
             text-decoration: underline;
+        }
+        
+        /* JANELA GRANDE DA FOTO */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+        
+        .lightbox-fechar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            font-weight: bold;
         }
         
         .contato {
@@ -326,17 +363,17 @@
         <div class="servico-card"><h3>📸 Retratos</h3></div>
     </div>
     
-    <!-- GALERIA DE CASAMENTO — NOMES EXATOS COMO ESTÃO NO GITHUB -->
+    <!-- GALERIA DE CASAMENTO — COM CLIQUE PARA ABRIR GRANDE! -->
     <div id="galeria-casamento" class="galeria-section">
         <span class="voltar-btn" onclick="voltarServicos()">← Voltar aos Serviços</span>
         <h2 class="section-title">💍 Casamento</h2>
         <div class="galeria-grid">
-            <img src="Casamento 6.jpg" class="galeria-img" alt="Foto de Casamento">
-            <img src="Casamento 3.jpg" class="galeria-img" alt="Foto de Casamento">
-            <img src="Casamento 4.jpg" class="galeria-img" alt="Foto de Casamento">
-            <img src="Casamento 5.jpg" class="galeria-img" alt="Foto de Casamento">
-            <img src="Casamento 7.jpg" class="galeria-img" alt="Foto de Casamento">
-            <img src="Casamento 8.jpg" class="galeria-img" alt="Foto de Casamento">
+            <img src="Casamento 6.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
+            <img src="Casamento 3.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
+            <img src="Casamento 4.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
+            <img src="Casamento 5.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
+            <img src="Casamento 7.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
+            <img src="Casamento 8.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
         </div>
     </div>
 </section>
@@ -354,6 +391,12 @@
     <p>&copy; 2025 Rafa.Mídia - Todos os direitos reservados | Fotografia Profissional</p>
 </footer>
 
+<!-- JANELA PARA ABRIR FOTO GRANDE -->
+<div id="lightbox" class="lightbox" onclick="fecharFoto()">
+    <span class="lightbox-fechar">&times;</span>
+    <img id="fotoGrande" class="lightbox-img" alt="Foto ampliada">
+</div>
+
 <script>
 function mostrarGaleria(nome) {
     document.getElementById('lista-servicos').style.display = 'none';
@@ -364,6 +407,18 @@ function mostrarGaleria(nome) {
 function voltarServicos() {
     document.querySelectorAll('.galeria-section').forEach(g => g.classList.remove('active'));
     document.getElementById('lista-servicos').style.display = 'grid';
+}
+
+// FUNÇÃO PARA ABRIR FOTO GRANDE
+function abrirFoto(src) {
+    document.getElementById('fotoGrande').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function fecharFoto() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = 'auto';
 }
 </script>
 
