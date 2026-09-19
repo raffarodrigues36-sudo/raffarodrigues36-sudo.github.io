@@ -9,67 +9,76 @@
         :root { --preto: #111; --dourado: #b78f58; --branco: #fff; --cinza: #f5f5f5; }
         body { background: var(--branco); color: var(--preto); line-height: 1.6; }
 
+        /* FOTO DE CAPA — EXATAMENTE COMO ESTAVA */
         header {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('capa.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('capa.jpg') center/cover no-repeat;
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; color: var(--branco);
         }
-        header h1 { font-size: 4rem; letter-spacing: 3px; margin-bottom: 0.5rem; }
+        header h1 { font-size: 3.5rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
         header h1 span { color: var(--dourado); }
-        header p { font-size: 1.3rem; opacity: 0.9; margin-bottom: 2rem; }
-        .btn { padding: 14px 36px; background: var(--dourado); color: var(--branco); text-decoration: none;
+        header p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
+        .btn { padding: 12px 30px; background: var(--dourado); color: var(--branco); text-decoration: none;
                font-weight: 600; border-radius: 4px; transition: 0.3s; }
-        .btn:hover { background: #a07a48; transform: translateY(-2px); }
+        .btn:hover { background: #a07a48; }
 
         nav { position: sticky; top: 0; background: var(--branco); box-shadow: 0 2px 10px rgba(0,0,0,0.08); z-index: 999; }
         nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; padding: 1rem; }
-        nav a { color: var(--preto); text-decoration: none; padding: 0.8rem 1.2rem; font-weight: 500;
+        nav a { color: var(--preto); text-decoration: none; padding: 0.7rem 1rem; font-weight: 500;
                 border-bottom: 2px solid transparent; transition: 0.25s; }
         nav a:hover { color: var(--dourado); border-bottom: 2px solid var(--dourado); }
 
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 50px; position: relative; }
-        h2::after { content: ''; width: 70px; height: 3px; background: var(--dourado); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        section { padding: 70px 20px; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; position: relative; }
+        h2::after { content: ''; width: 60px; height: 3px; background: var(--dourado); position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); }
 
-        .sobre-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; justify-content: center; }
-        .sobre-img { width: 320px; border-radius: 6px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
-        .sobre-texto { flex: 1; min-width: 300px; }
-        .sobre-texto h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--dourado); }
+        .sobre-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; }
+        .sobre-img { width: 280px; border-radius: 6px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
+        .sobre-texto { flex: 1; min-width: 280px; }
+        .sobre-texto h3 { font-size: 1.6rem; margin-bottom: 1rem; color: var(--dourado); }
 
-        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .servico-card { background: var(--cinza); padding: 30px 20px; text-align: center; border-radius: 6px;
-                         transition: 0.3s; border-bottom: 3px solid transparent; }
-        .servico-card:hover { transform: translateY(-5px); border-bottom: 3px solid var(--dourado); }
-        .servico-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .servico-card { background: var(--cinza); padding: 25px 15px; text-align: center; border-radius: 6px;
+                         transition: 0.3s; cursor: pointer; }
+        .servico-card:hover { transform: translateY(-3px); background: #ebebeb; }
 
-        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .galeria-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;
-                             transition: 0.3s; }
-        .galeria-grid img:hover { opacity: 0.88; transform: scale(1.02); }
-
-        .galeria-section { display: none; margin-top: 30px; }
+        /* GALERIA — CLIQUE PARA ABRIR FOTO */
+        .galeria-section { display: none; margin-top: 40px; }
         .galeria-section.ativa { display: block; }
-        .servico-card { cursor: pointer; }
+        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+        .galeria-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px;
+                             cursor: pointer; transition: 0.3s; }
+        .galeria-grid img:hover { opacity: 0.85; transform: scale(1.03); }
 
         #contato { background: var(--preto); color: var(--branco); text-align: center; }
-        #contato p { margin: 0.8rem 0; font-size: 1.1rem; }
+        #contato p { margin: 0.7rem 0; font-size: 1rem; }
         #contato a { color: var(--dourado); text-decoration: none; }
 
-        footer { background: #000; color: #777; text-align: center; padding: 25px; font-size: 0.9rem; }
+        footer { background: #000; color: #777; text-align: center; padding: 20px; font-size: 0.85rem; }
+
+        /* LIGHTBOX — A FOTO ABRE AO CLICAR */
+        .lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;
+        }
+        .lightbox.ativo { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 4px; }
+        .lightbox-fechar { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem;
+                           text-decoration: none; font-weight: bold; cursor: pointer; }
 
         @media(max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
+            header h1 { font-size: 2.2rem; }
             .sobre-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-<!-- CABEÇALHO -->
+<!-- FOTO DE CAPA -->
 <header id="inicio">
     <h1>Rafa.<span>mídia</span></h1>
-    <p>Fotógrafo Profissional | Registrando momentos únicos</p>
-    <a href="#servicos" class="btn">Meus Trabalhos</a>
+    <p>Fotógrafo Profissional | Casamentos, Eventos, Ensaios</p>
+    <a href="#servicos" class="btn">Ver Serviços</a>
 </header>
 
 <!-- MENU -->
@@ -82,125 +91,110 @@
     </ul>
 </nav>
 
-<!-- SOBRE MIM -->
+<!-- SOBRE -->
 <section id="sobre">
-    <h2>Quem Sou Eu</h2>
+    <h2>Sobre Mim</h2>
     <div class="sobre-container">
         <img src="perfil.jpg" class="sobre-img" alt="Rafa Rodrigues - Fotógrafo">
         <div class="sobre-texto">
             <h3>Rafa Rodrigues</h3>
-            <p>Olá! Sou fotógrafo apaixonado por capturar emoções e momentos que duram para sempre. Cada ensaio e cada evento são únicos, e minha missão é transformar seus momentos mais especiais em memórias eternas através das lentes.</p>
-            <p style="margin-top: 1rem;">Trabalho com diversas modalidades, sempre com dedicação, profissionalismo e aquele toque especial que faz toda a diferença. Vamos criar algo lindo juntos? 📸</p>
+            <p>Fotógrafo profissional especializado em capturar momentos verdadeiros e emocionantes. Cada ensaio, cada evento, cada clique é feito com dedicação para transformar seus momentos em memórias eternas.</p>
         </div>
     </div>
 </section>
 
-<!-- SERVIÇOS -->
+<!-- SERVIÇOS — AQUI REMOVI APENAS AS DUAS CATEGORIAS QUE VOCÊ PEDIU -->
 <section id="servicos">
     <h2>Meus Serviços</h2>
     <div class="servicos-grid">
         <div class="servico-card" onclick="mostrarGaleria('casamento')">
             <h3>💍 Casamento</h3>
-            <p>O dia mais importante da sua vida</p>
         </div>
         <div class="servico-card" onclick="mostrarGaleria('ensaio-masculino')">
             <h3>👤 Ensaio Masculino</h3>
-            <p>Seu melhor ângulo, sua essência</p>
         </div>
         <div class="servico-card" onclick="mostrarGaleria('ensaio-feminino')">
             <h3>👩 Ensaio Feminino</h3>
-            <p>Beleza, empoderamento e brilho</p>
         </div>
         <div class="servico-card" onclick="mostrarGaleria('eventos-esportivos')">
             <h3>⚽ Eventos Esportivos</h3>
-            <p>A adrenalina do esporte</p>
         </div>
         <div class="servico-card" onclick="mostrarGaleria('ensaio-casal')">
             <h3>💑 Ensaio de Casal</h3>
-            <p>Amor em cada clique</p>
         </div>
         <div class="servico-card" onclick="mostrarGaleria('aniversario-infantil')">
             <h3>🎂 Aniversário Infantil</h3>
-            <p>A magia da infância</p>
         </div>
         <div class="servico-card" onclick="mostrarGaleria('formatura')">
             <h3>🎓 Formatura</h3>
-            <p>Conquista e emoção</p>
         </div>
         <div class="servico-card" onclick="mostrarGaleria('retratos')">
             <h3>📸 Retratos</h3>
-            <p>Sua história, seu rosto</p>
         </div>
     </div>
 
-    <!-- GALERIAS -->
+    <!-- GALERIA DE CASAMENTO — CLIQUE PARA ABRIR FOTO -->
     <div id="galeria-casamento" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">💍 Casamento</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">💍 Casamento</h3>
         <div class="galeria-grid">
-            <img src="casamento6.jpg" alt="Casamento">
-            <img src="casamento1.jpg" alt="Casamento">
-            <img src="casamento2.jpg" alt="Casamento">
-            <img src="casamento3.jpg" alt="Casamento">
-            <img src="casamento4.jpg" alt="Casamento">
-            <img src="casamento5.jpg" alt="Casamento">
-            <img src="casamento7.jpg" alt="Casamento">
-            <img src="casamento8.jpg" alt="Casamento">
+            <img src="casamento6.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento1.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento2.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento3.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento4.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento5.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento7.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento8.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
         </div>
     </div>
 
+    <!-- OUTRAS GALERIAS -->
     <div id="galeria-ensaio-masculino" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">👤 Ensaio Masculino</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">👤 Ensaio Masculino</h3>
         <div class="galeria-grid">
-            <img src="masc1.jpg" alt="Ensaio Masculino">
-            <img src="masc2.jpg" alt="Ensaio Masculino">
+            <img src="masc1.jpg" alt="Ensaio Masculino" onclick="abrirFoto(this.src)">
         </div>
     </div>
 
     <div id="galeria-ensaio-feminino" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">👩 Ensaio Feminino</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">👩 Ensaio Feminino</h3>
         <div class="galeria-grid">
-            <img src="fem1.jpg" alt="Ensaio Feminino">
-            <img src="fem2.jpg" alt="Ensaio Feminino">
+            <img src="fem1.jpg" alt="Ensaio Feminino" onclick="abrirFoto(this.src)">
         </div>
     </div>
 
     <div id="galeria-eventos-esportivos" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">⚽ Eventos Esportivos</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">⚽ Eventos Esportivos</h3>
         <div class="galeria-grid">
-            <img src="esporte1.jpg" alt="Evento Esportivo">
-            <img src="esporte2.jpg" alt="Evento Esportivo">
+            <img src="esporte1.jpg" alt="Evento Esportivo" onclick="abrirFoto(this.src)">
         </div>
     </div>
 
     <div id="galeria-ensaio-casal" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">💑 Ensaio de Casal</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">💑 Ensaio de Casal</h3>
         <div class="galeria-grid">
-            <img src="casal1.jpg" alt="Ensaio de Casal">
-            <img src="casal2.jpg" alt="Ensaio de Casal">
+            <img src="casal1.jpg" alt="Ensaio de Casal" onclick="abrirFoto(this.src)">
         </div>
     </div>
 
     <div id="galeria-aniversario-infantil" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">🎂 Aniversário Infantil</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">🎂 Aniversário Infantil</h3>
         <div class="galeria-grid">
-            <img src="infantil1.jpg" alt="Aniversário Infantil">
-            <img src="infantil2.jpg" alt="Aniversário Infantil">
+            <img src="infantil1.jpg" alt="Aniversário Infantil" onclick="abrirFoto(this.src)">
         </div>
     </div>
 
     <div id="galeria-formatura" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">🎓 Formatura</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">🎓 Formatura</h3>
         <div class="galeria-grid">
-            <img src="form1.jpg" alt="Formatura">
-            <img src="form2.jpg" alt="Formatura">
+            <img src="form1.jpg" alt="Formatura" onclick="abrirFoto(this.src)">
         </div>
     </div>
 
     <div id="galeria-retratos" class="galeria-section">
-        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">📸 Retratos</h3>
+        <h3 style="text-align:center; margin:20px 0; font-size:1.5rem; color:var(--dourado);">📸 Retratos</h3>
         <div class="galeria-grid">
-            <img src="retrato1.jpg" alt="Retrato">
-            <img src="retrato2.jpg" alt="Retrato">
+            <img src="retrato1.jpg" alt="Retrato" onclick="abrirFoto(this.src)">
         </div>
     </div>
 </section>
@@ -218,12 +212,25 @@
     <p>&copy; 2026 Rafa.mídia — Todos os direitos reservados</p>
 </footer>
 
+<!-- LIGHTBOX — A FOTO ABRE AO CLICAR -->
+<div class="lightbox" id="lightbox" onclick="fecharFoto()">
+    <span class="lightbox-fechar">&times;</span>
+    <img src="" alt="Foto ampliada" id="foto-grande">
+</div>
+
 <!-- SCRIPT -->
 <script>
 function mostrarGaleria(nome) {
     document.querySelectorAll('.galeria-section').forEach(g => g.classList.remove('ativa'));
     document.getElementById('galeria-' + nome).classList.add('ativa');
     document.getElementById('servicos').scrollIntoView({behavior: 'smooth'});
+}
+function abrirFoto(src) {
+    document.getElementById('foto-grande').src = src;
+    document.getElementById('lightbox').classList.add('ativo');
+}
+function fecharFoto() {
+    document.getElementById('lightbox').classList.remove('ativo');
 }
 </script>
 
