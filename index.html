@@ -1,424 +1,229 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafa.Mídia | Fotografia</title>
+    <title>Rafa.mídia | Fotógrafo</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-        
-        body {
-            color: #333;
-            line-height: 1.6;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        :root { --preto: #111; --dourado: #b78f58; --branco: #fff; --cinza: #f5f5f5; }
+        body { background: var(--branco); color: var(--preto); line-height: 1.6; }
+
         header {
-            background: rgba(0,0,0,0.6);
-            padding: 20px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('capa.jpg') center/cover no-repeat;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: var(--branco);
         }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .logo span {
-            color: #ffd700;
-        }
-        
-        nav {
-            float: right;
-            margin-top: 5px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-        
-        nav a:hover {
-            color: #ffd700;
-        }
-        
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.45)), url('Capa.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        
-        .hero-content h1 {
-            font-size: 65px;
-            margin-bottom: 15px;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.4);
-            letter-spacing: 8px;
-        }
-        
-        .hero-content h1 span {
-            color: #ffd700;
-        }
-        
-        .hero-content p {
-            font-size: 24px;
-            margin-bottom: 40px;
-            text-shadow: 1px 2px 10px rgba(0,0,0,0.4);
-            font-weight: 300;
-        }
-        
-        .btn {
-            background: linear-gradient(135deg, #ffd700, #daa520);
-            color: white;
-            padding: 16px 45px;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 50px;
-            transition: 0.4s;
-            box-shadow: 0 5px 20px rgba(218,165,32,0.4);
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(218,165,32,0.5);
-        }
-        
-        section {
-            padding: 100px 5%;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: #222;
-        }
-        
-        .section-title span {
-            color: #daa520;
-        }
-        
-        .sobre-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-        
-        .sobre-img {
-            width: 400px;
-            height: 500px;
-            background: #ddd;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-        
-        .sobre-texto {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .sobre-texto h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #222;
-        }
-        
-        .sobre-texto h2 span {
-            color: #daa520;
-        }
-        
-        .sobre-texto p {
-            font-size: 18px;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .servicos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .servico-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        
-        .servico-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-        
-        .servico-card h3 {
-            font-size: 20px;
-            color: #222;
-            margin-bottom: 10px;
-        }
-        
-        .galeria-section {
-            display: none;
-        }
-        
-        .galeria-section.active {
-            display: block;
-        }
-        
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .galeria-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        
-        .galeria-img:hover {
-            transform: scale(1.03);
-        }
-        
-        .voltar-btn {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: #daa520;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        
-        .voltar-btn:hover {
-            text-decoration: underline;
-        }
-        
-        /* JANELA GRANDE DA FOTO */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .lightbox.active {
-            display: flex;
-        }
-        
-        .lightbox-img {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 8px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-        }
-        
-        .lightbox-fechar {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        
-        .contato {
-            background: linear-gradient(135deg, #111, #222);
-            color: white;
-            text-align: center;
-        }
-        
-        .contato h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-        }
-        
-        .contato h2 span {
-            color: #ffd700;
-        }
-        
-        .contato-info p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .contato-info a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-        
-        footer {
-            background: #000;
-            color: #888;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
-        
-        @media(max-width: 900px) {
-            .sobre-container {
-                flex-direction: column;
-            }
-            .hero-content h1 {
-                font-size: 40px;
-                letter-spacing: 4px;
-            }
-            nav {
-                display: none;
-            }
+        header h1 { font-size: 4rem; letter-spacing: 3px; margin-bottom: 0.5rem; }
+        header h1 span { color: var(--dourado); }
+        header p { font-size: 1.3rem; opacity: 0.9; margin-bottom: 2rem; }
+        .btn { padding: 14px 36px; background: var(--dourado); color: var(--branco); text-decoration: none;
+               font-weight: 600; border-radius: 4px; transition: 0.3s; }
+        .btn:hover { background: #a07a48; transform: translateY(-2px); }
+
+        nav { position: sticky; top: 0; background: var(--branco); box-shadow: 0 2px 10px rgba(0,0,0,0.08); z-index: 999; }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; padding: 1rem; }
+        nav a { color: var(--preto); text-decoration: none; padding: 0.8rem 1.2rem; font-weight: 500;
+                border-bottom: 2px solid transparent; transition: 0.25s; }
+        nav a:hover { color: var(--dourado); border-bottom: 2px solid var(--dourado); }
+
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 70px; height: 3px; background: var(--dourado); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        .sobre-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; justify-content: center; }
+        .sobre-img { width: 320px; border-radius: 6px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); }
+        .sobre-texto { flex: 1; min-width: 300px; }
+        .sobre-texto h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--dourado); }
+
+        .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .servico-card { background: var(--cinza); padding: 30px 20px; text-align: center; border-radius: 6px;
+                         transition: 0.3s; border-bottom: 3px solid transparent; }
+        .servico-card:hover { transform: translateY(-5px); border-bottom: 3px solid var(--dourado); }
+        .servico-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .galeria-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;
+                             transition: 0.3s; }
+        .galeria-grid img:hover { opacity: 0.88; transform: scale(1.02); }
+
+        .galeria-section { display: none; margin-top: 30px; }
+        .galeria-section.ativa { display: block; }
+        .servico-card { cursor: pointer; }
+
+        #contato { background: var(--preto); color: var(--branco); text-align: center; }
+        #contato p { margin: 0.8rem 0; font-size: 1.1rem; }
+        #contato a { color: var(--dourado); text-decoration: none; }
+
+        footer { background: #000; color: #777; text-align: center; padding: 25px; font-size: 0.9rem; }
+
+        @media(max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .sobre-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="#" class="logo">rafa<span>.</span>mídia</a>
-    <nav>
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Quem Sou</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
-    </nav>
+<!-- CABEÇALHO -->
+<header id="inicio">
+    <h1>Rafa.<span>mídia</span></h1>
+    <p>Fotógrafo Profissional | Registrando momentos únicos</p>
+    <a href="#servicos" class="btn">Meus Trabalhos</a>
 </header>
 
-<section class="hero" id="inicio">
-    <div class="hero-content">
-        <h1>RAFA<span>.</span>MÍDIA</h1>
-        <p>Fotografia profissional que conta histórias</p>
-        <a href="#contato" class="btn">Solicitar Orçamento</a>
-    </div>
-</section>
+<!-- MENU -->
+<nav>
+    <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
 
+<!-- SOBRE MIM -->
 <section id="sobre">
-    <h2 class="section-title">Quem <span>Sou</span></h2>
+    <h2>Quem Sou Eu</h2>
     <div class="sobre-container">
         <img src="perfil.jpg" class="sobre-img" alt="Rafa Rodrigues - Fotógrafo">
         <div class="sobre-texto">
-            <h2>Rafa Rodrigues <span>| Fotógrafo</span></h2>
-            <p>Sou fotógrafo apaixonado por capturar momentos únicos e verdadeiros. Cada clique é pensado para registrar emoções, detalhes e histórias que ficarão para sempre.</p>
-            <p>Trabalho com casamentos, eventos corporativos, ensaios e muito mais. Minha missão é entregar imagens que te emocionem toda vez que você olhar.</p>
-            <p>📸 Sua história, registrada com amor e profissionalismo.</p>
+            <h3>Rafa Rodrigues</h3>
+            <p>Olá! Sou fotógrafo apaixonado por capturar emoções e momentos que duram para sempre. Cada ensaio e cada evento são únicos, e minha missão é transformar seus momentos mais especiais em memórias eternas através das lentes.</p>
+            <p style="margin-top: 1rem;">Trabalho com diversas modalidades, sempre com dedicação, profissionalismo e aquele toque especial que faz toda a diferença. Vamos criar algo lindo juntos? 📸</p>
         </div>
     </div>
 </section>
 
-<section id="servicos" style="background: #f9f9f9;">
-    <h2 class="section-title">Meus <span>Serviços</span></h2>
-    
-    <div id="lista-servicos" class="servicos-grid">
-        <div class="servico-card" onclick="mostrarGaleria('casamento')"><h3>💍 Casamento</h3></div>
-        <div class="servico-card"><h3>🏢 Eventos Corporativos</h3></div>
-        <div class="servico-card"><h3>🏆 Eventos Executivos</h3></div>
-        <div class="servico-card"><h3>👤 Ensaio Masculino</h3></div>
-        <div class="servico-card"><h3>👩 Ensaio Feminino</h3></div>
-        <div class="servico-card"><h3>⚽ Eventos Esportivos</h3></div>
-        <div class="servico-card"><h3>💑 Ensaio de Casal</h3></div>
-        <div class="servico-card"><h3>🎂 Aniversário Infantil</h3></div>
-        <div class="servico-card"><h3>🎓 Formatura</h3></div>
-        <div class="servico-card"><h3>📸 Retratos</h3></div>
+<!-- SERVIÇOS -->
+<section id="servicos">
+    <h2>Meus Serviços</h2>
+    <div class="servicos-grid">
+        <div class="servico-card" onclick="mostrarGaleria('casamento')">
+            <h3>💍 Casamento</h3>
+            <p>O dia mais importante da sua vida</p>
+        </div>
+        <div class="servico-card" onclick="mostrarGaleria('ensaio-masculino')">
+            <h3>👤 Ensaio Masculino</h3>
+            <p>Seu melhor ângulo, sua essência</p>
+        </div>
+        <div class="servico-card" onclick="mostrarGaleria('ensaio-feminino')">
+            <h3>👩 Ensaio Feminino</h3>
+            <p>Beleza, empoderamento e brilho</p>
+        </div>
+        <div class="servico-card" onclick="mostrarGaleria('eventos-esportivos')">
+            <h3>⚽ Eventos Esportivos</h3>
+            <p>A adrenalina do esporte</p>
+        </div>
+        <div class="servico-card" onclick="mostrarGaleria('ensaio-casal')">
+            <h3>💑 Ensaio de Casal</h3>
+            <p>Amor em cada clique</p>
+        </div>
+        <div class="servico-card" onclick="mostrarGaleria('aniversario-infantil')">
+            <h3>🎂 Aniversário Infantil</h3>
+            <p>A magia da infância</p>
+        </div>
+        <div class="servico-card" onclick="mostrarGaleria('formatura')">
+            <h3>🎓 Formatura</h3>
+            <p>Conquista e emoção</p>
+        </div>
+        <div class="servico-card" onclick="mostrarGaleria('retratos')">
+            <h3>📸 Retratos</h3>
+            <p>Sua história, seu rosto</p>
+        </div>
     </div>
-    
-    <!-- GALERIA DE CASAMENTO — COM CLIQUE PARA ABRIR GRANDE! -->
+
+    <!-- GALERIAS -->
     <div id="galeria-casamento" class="galeria-section">
-        <span class="voltar-btn" onclick="voltarServicos()">← Voltar aos Serviços</span>
-        <h2 class="section-title">💍 Casamento</h2>
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">💍 Casamento</h3>
         <div class="galeria-grid">
-            <img src="Casamento 6.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
-            <img src="Casamento 3.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
-            <img src="Casamento 4.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
-            <img src="Casamento 5.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
-            <img src="Casamento 7.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
-            <img src="Casamento 8.jpg" class="galeria-img" alt="Foto de Casamento" onclick="abrirFoto(this.src)">
+            <img src="casamento6.jpg" alt="Casamento">
+            <img src="casamento1.jpg" alt="Casamento">
+            <img src="casamento2.jpg" alt="Casamento">
+            <img src="casamento3.jpg" alt="Casamento">
+            <img src="casamento4.jpg" alt="Casamento">
+            <img src="casamento5.jpg" alt="Casamento">
+            <img src="casamento7.jpg" alt="Casamento">
+            <img src="casamento8.jpg" alt="Casamento">
+        </div>
+    </div>
+
+    <div id="galeria-ensaio-masculino" class="galeria-section">
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">👤 Ensaio Masculino</h3>
+        <div class="galeria-grid">
+            <img src="masc1.jpg" alt="Ensaio Masculino">
+            <img src="masc2.jpg" alt="Ensaio Masculino">
+        </div>
+    </div>
+
+    <div id="galeria-ensaio-feminino" class="galeria-section">
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">👩 Ensaio Feminino</h3>
+        <div class="galeria-grid">
+            <img src="fem1.jpg" alt="Ensaio Feminino">
+            <img src="fem2.jpg" alt="Ensaio Feminino">
+        </div>
+    </div>
+
+    <div id="galeria-eventos-esportivos" class="galeria-section">
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">⚽ Eventos Esportivos</h3>
+        <div class="galeria-grid">
+            <img src="esporte1.jpg" alt="Evento Esportivo">
+            <img src="esporte2.jpg" alt="Evento Esportivo">
+        </div>
+    </div>
+
+    <div id="galeria-ensaio-casal" class="galeria-section">
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">💑 Ensaio de Casal</h3>
+        <div class="galeria-grid">
+            <img src="casal1.jpg" alt="Ensaio de Casal">
+            <img src="casal2.jpg" alt="Ensaio de Casal">
+        </div>
+    </div>
+
+    <div id="galeria-aniversario-infantil" class="galeria-section">
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">🎂 Aniversário Infantil</h3>
+        <div class="galeria-grid">
+            <img src="infantil1.jpg" alt="Aniversário Infantil">
+            <img src="infantil2.jpg" alt="Aniversário Infantil">
+        </div>
+    </div>
+
+    <div id="galeria-formatura" class="galeria-section">
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">🎓 Formatura</h3>
+        <div class="galeria-grid">
+            <img src="form1.jpg" alt="Formatura">
+            <img src="form2.jpg" alt="Formatura">
+        </div>
+    </div>
+
+    <div id="galeria-retratos" class="galeria-section">
+        <h3 style="text-align:center; margin:30px 0; font-size:1.6rem; color:var(--dourado);">📸 Retratos</h3>
+        <div class="galeria-grid">
+            <img src="retrato1.jpg" alt="Retrato">
+            <img src="retrato2.jpg" alt="Retrato">
         </div>
     </div>
 </section>
 
-<section class="contato" id="contato">
-    <h2>Entre em <span>Contato</span></h2>
-    <div class="contato-info">
-        <p>📧 Email: <a href="mailto:rafa27crush@hotmail.com">rafa27crush@hotmail.com</a></p>
-        <p>📱 Telefone/WhatsApp: <a href="tel:+5511939085800">(11) 93908-5800</a></p>
-        <p>📷 Instagram: <a href="https://www.instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
-    </div>
+<!-- CONTATO -->
+<section id="contato">
+    <h2>Contato</h2>
+    <p>📧 E-mail: <a href="mailto:rafa27crush@hotmail.com">rafa27crush@hotmail.com</a></p>
+    <p>📱 Telefone/WhatsApp: <a href="tel:+5511939085800">(11) 93908-5800</a></p>
+    <p>📸 Instagram: <a href="https://www.instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
 </section>
 
+<!-- RODAPÉ -->
 <footer>
-    <p>&copy; 2025 Rafa.Mídia - Todos os direitos reservados | Fotografia Profissional</p>
+    <p>&copy; 2026 Rafa.mídia — Todos os direitos reservados</p>
 </footer>
 
-<!-- JANELA PARA ABRIR FOTO GRANDE -->
-<div id="lightbox" class="lightbox" onclick="fecharFoto()">
-    <span class="lightbox-fechar">&times;</span>
-    <img id="fotoGrande" class="lightbox-img" alt="Foto ampliada">
-</div>
-
+<!-- SCRIPT -->
 <script>
 function mostrarGaleria(nome) {
-    document.getElementById('lista-servicos').style.display = 'none';
-    document.getElementById('galeria-' + nome).classList.add('active');
-    window.scrollTo({ top: document.getElementById('servicos').offsetTop, behavior: 'smooth' });
-}
-
-function voltarServicos() {
-    document.querySelectorAll('.galeria-section').forEach(g => g.classList.remove('active'));
-    document.getElementById('lista-servicos').style.display = 'grid';
-}
-
-// FUNÇÃO PARA ABRIR FOTO GRANDE
-function abrirFoto(src) {
-    document.getElementById('fotoGrande').src = src;
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function fecharFoto() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = 'auto';
+    document.querySelectorAll('.galeria-section').forEach(g => g.classList.remove('ativa'));
+    document.getElementById('galeria-' + nome).classList.add('ativa');
+    document.getElementById('servicos').scrollIntoView({behavior: 'smooth'});
 }
 </script>
 
