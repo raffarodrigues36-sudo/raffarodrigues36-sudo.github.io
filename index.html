@@ -10,10 +10,9 @@
     body { color: #333; line-height: 1.6; }
     .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-    /* ---------- CAPA ---------- */
     .capa {
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('capa.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Capa.jpg') center/cover no-repeat;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       color: white; text-align: center;
     }
@@ -22,14 +21,12 @@
     .btn { padding: 12px 30px; background: #d4af37; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; transition: 0.3s; }
     .btn:hover { background: #b8962c; }
 
-    /* ---------- SOBRE MIM ---------- */
     .sobre { padding: 80px 0; background: #f9f9f9; }
     .sobre .container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
     .sobre-img { width: 300px; height: 300px; object-fit: cover; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     .sobre-texto { flex: 1; min-width: 300px; }
     .sobre-texto h2 { font-size: 2rem; margin-bottom: 1rem; color: #222; }
 
-    /* ---------- SERVIÇOS ---------- */
     .servicos { padding: 80px 0; }
     .servicos h2 { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: #222; }
     .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -40,7 +37,6 @@
     .servico-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
     .servico-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #d4af37; }
 
-    /* ---------- ÁLBUNS ---------- */
     .album-section { padding: 80px 0; display: none; }
     .album-section:target { display: block; }
     .album-titulo { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: #222; }
@@ -51,13 +47,11 @@
     .btn-voltar { display: inline-block; margin-top: 40px; color: #d4af37; text-decoration: none; font-weight: bold; }
     .btn-voltar:hover { text-decoration: underline; }
 
-    /* ---------- CONTATO ---------- */
     .contato { padding: 80px 0; background: #222; color: white; text-align: center; }
     .contato h2 { font-size: 2rem; margin-bottom: 30px; }
     .contato p { margin: 10px 0; font-size: 1.1rem; }
     .contato a { color: #d4af37; text-decoration: none; }
 
-    /* ---------- IMAGEM EM TELA CHEIA ---------- */
     .overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);
       display: none; justify-content: center; align-items: center; z-index: 9999;
@@ -68,14 +62,12 @@
 </head>
 <body>
 
-<!-- CAPA -->
 <section class="capa">
   <h1>Rafa.Mídia</h1>
   <p>Fotógrafo Profissional</p>
   <a href="#sobre" class="btn">Conhecer Mais</a>
 </section>
 
-<!-- SOBRE MIM -->
 <section class="sobre" id="sobre">
   <div class="container">
     <img src="perfil.jpg" class="sobre-img" alt="Rafa Rodrigues - Fotógrafo">
@@ -86,7 +78,6 @@
   </div>
 </section>
 
-<!-- SERVIÇOS -->
 <section class="servicos" id="servicos">
   <div class="container">
     <h2>Meus Serviços</h2>
@@ -95,181 +86,54 @@
         <h3>💒 Casamento</h3>
         <p>Registrando o amor em cada detalhe do seu dia especial.</p>
       </div>
-      <div class="servico-card" onclick="window.location.href='#corporativo'">
-        <h3>🏢 Eventos Corporativos</h3>
-        <p>Imagens profissionais para o sucesso do seu negócio.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#masculino'">
-        <h3>👔 Ensaio Masculino</h3>
-        <p>Estilo, confiança e personalidade em cada clique.</p>
-      </div>
       <div class="servico-card" onclick="window.location.href='#feminino'">
         <h3>📸 Ensaio Feminino</h3>
         <p>Ensaios personalizados, beleza, autoestima e elegância.</p>
       </div>
-      <div class="servico-card" onclick="window.location.href='#esportivos'">
-        <h3>🏆 Eventos Esportivos</h3>
-        <p>A adrenalina e a paixão pelo esporte registradas em movimento.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#casal'">
-        <h3>💑 Ensaio de Casal</h3>
-        <p>Amor e cumplicidade em belas fotografias juntos.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#aniversario'">
-        <h3>🎂 Aniversário Infantil</h3>
-        <p>A alegria das crianças em cada momento da festa.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#formatura'">
-        <h3>🎓 Formatura</h3>
-        <p>O marco da conquista celebrado com imagens inesquecíveis.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#retratos'">
-        <h3>🖼️ Retratos</h3>
-        <p>A essência de cada pessoa capturada com sensibilidade.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#urbanos'">
-        <h3>🏙️ Urbanos</h3>
-        <p>Beleza e arte nas ruas e cenários da cidade.</p>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ÁLBUM: CASAMENTO -->
+<!-- ÁLBUM CASAMENTO - NOMES EXATOS! -->
 <section class="album-section" id="casamento">
   <div class="container">
     <h2 class="album-titulo">Casamento</h2>
     <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('casamento-1.jpg')"><img src="casamento-1.jpg" alt="casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('casamento-2.jpg')"><img src="casamento-2.jpg" alt="casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('casamento-3.jpg')"><img src="casamento-3.jpg" alt="casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('casamento-4.jpg')"><img src="casamento-4.jpg" alt="casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('casamento-5.jpg')"><img src="casamento-5.jpg" alt="casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('casamento-6.jpg')"><img src="casamento-6.jpg" alt="casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('casamento-7.jpg')"><img src="casamento-7.jpg" alt="casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('casamento-8.jpg')"><img src="casamento-8.jpg" alt="casamento"></div>
+      <div class="foto-item" onclick="abrirImagem('Casamento 3.jpg')"><img src="Casamento 3.jpg" alt="Casamento"></div>
+      <div class="foto-item" onclick="abrirImagem('Casamento 4.jpg')"><img src="Casamento 4.jpg" alt="Casamento"></div>
+      <div class="foto-item" onclick="abrirImagem('Casamento 5.jpg')"><img src="Casamento 5.jpg" alt="Casamento"></div>
+      <div class="foto-item" onclick="abrirImagem('Casamento 6.jpg')"><img src="Casamento 6.jpg" alt="Casamento"></div>
+      <div class="foto-item" onclick="abrirImagem('Casamento 7.jpg')"><img src="Casamento 7.jpg" alt="Casamento"></div>
+      <div class="foto-item" onclick="abrirImagem('Casamento 8.jpg')"><img src="Casamento 8.jpg" alt="Casamento"></div>
     </div>
     <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
   </div>
 </section>
 
-<!-- ÁLBUM: EVENTOS CORPORATIVOS -->
-<section class="album-section" id="corporativo">
-  <div class="container">
-    <h2 class="album-titulo">Eventos Corporativos</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('corporativo-1.jpg')"><img src="corporativo-1.jpg" alt="evento corporativo"></div>
-      <div class="foto-item" onclick="abrirImagem('corporativo-2.jpg')"><img src="corporativo-2.jpg" alt="evento corporativo"></div>
-      <div class="foto-item" onclick="abrirImagem('corporativo-3.jpg')"><img src="corporativo-3.jpg" alt="evento corporativo"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: ENSAIO MASCULINO -->
-<section class="album-section" id="masculino">
-  <div class="container">
-    <h2 class="album-titulo">Ensaio Masculino</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('masculino-1.jpg')"><img src="masculino-1.jpg" alt="ensaio masculino"></div>
-      <div class="foto-item" onclick="abrirImagem('masculino-2.jpg')"><img src="masculino-2.jpg" alt="ensaio masculino"></div>
-      <div class="foto-item" onclick="abrirImagem('masculino-3.jpg')"><img src="masculino-3.jpg" alt="ensaio masculino"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: ENSAIO FEMININO → CORRIGIDO COM SEUS NOMES EXATOS -->
+<!-- ÁLBUM FEMININO - NOMES EXATOS! -->
 <section class="album-section" id="feminino">
   <div class="container">
     <h2 class="album-titulo">Ensaio Feminino</h2>
     <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('feminina_1.jpg')"><img src="feminina_1.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 2.jpg')"><img src="feminina 2.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 3.jpg')"><img src="feminina 3.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 4.jpg')"><img src="feminina 4.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 5.jpg')"><img src="feminina 5.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 6.jpg')"><img src="feminina 6.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 7.jpg')"><img src="feminina 7.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 8.jpg')"><img src="feminina 8.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 9.jpg')"><img src="feminina 9.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 10.jpg')"><img src="feminina 10.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 11.jpg')"><img src="feminina 11.jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 12 .jpg')"><img src="feminina 12 .jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 13 .jpg')"><img src="feminina 13 .jpg" alt="ensaio feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 14 .jpg')"><img src="feminina 14 .jpg" alt="ensaio feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 1.jpg')"><img src="feminina 1.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 2.jpg')"><img src="feminina 2.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 3.jpg')"><img src="feminina 3.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 4.jpg')"><img src="feminina 4.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 5.jpg')"><img src="feminina 5.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 6.jpg')"><img src="feminina 6.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 7.jpg')"><img src="feminina 7.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 8.jpg')"><img src="feminina 8.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 9.jpg')"><img src="feminina 9.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 10.jpg')"><img src="feminina 10.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 11.jpg')"><img src="feminina 11.jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 12 .jpg')"><img src="feminina 12 .jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 13 .jpg')"><img src="feminina 13 .jpg" alt="Ensaio Feminino"></div>
+      <div class="foto-item" onclick="abrirImagem('feminina 14 .jpg')"><img src="feminina 14 .jpg" alt="Ensaio Feminino"></div>
     </div>
     <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
   </div>
 </section>
 
-<!-- ÁLBUM: EVENTOS ESPORTIVOS -->
-<section class="album-section" id="esportivos">
-  <div class="container">
-    <h2 class="album-titulo">Eventos Esportivos</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('esportivo-1.jpg')"><img src="esportivo-1.jpg" alt="Evento Esportivo"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: ENSAIO DE CASAL -->
-<section class="album-section" id="casal">
-  <div class="container">
-    <h2 class="album-titulo">Ensaio de Casal</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('casal-1.jpg')"><img src="casal-1.jpg" alt="Ensaio de Casal"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: ANIVERSÁRIO INFANTIL -->
-<section class="album-section" id="aniversario">
-  <div class="container">
-    <h2 class="album-titulo">Aniversário Infantil</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('aniversario-1.jpg')"><img src="aniversario-1.jpg" alt="Aniversário Infantil"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: FORMATURA -->
-<section class="album-section" id="formatura">
-  <div class="container">
-    <h2 class="album-titulo">Formatura</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('formatura-1.jpg')"><img src="formatura-1.jpg" alt="Formatura"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: RETRATOS -->
-<section class="album-section" id="retratos">
-  <div class="container">
-    <h2 class="album-titulo">Retratos</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('retrato-1.jpg')"><img src="retrato-1.jpg" alt="Retrato"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: URBANOS -->
-<section class="album-section" id="urbanos">
-  <div class="container">
-    <h2 class="album-titulo">Urbanos</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('urbano-1.jpg')"><img src="urbano-1.jpg" alt="Urbano"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- CONTATO -->
 <section class="contato" id="contato">
   <div class="container">
     <h2>Entre em Contato</h2>
@@ -279,7 +143,6 @@
   </div>
 </section>
 
-<!-- OVERLAY - ABRIR FOTO EM TELA CHEIA -->
 <div class="overlay" id="overlay" onclick="fecharImagem()">
   <a href="#" class="fechar" onclick="fecharImagem(); return false;">&times;</a>
   <img src="" alt="Imagem em tela cheia" class="overlay-img" id="overlay-img">
