@@ -40,8 +40,8 @@
         .album-card img { width: 100%; height: 180px; object-fit: cover; }
         .album-card h3 { padding: 1rem; text-align: center; font-size: 1.1rem; }
 
-        /* Galeria */
-        .galeria-page { display: none; min-height: 100vh; padding: 2rem; }
+        /* Galeria — aparece direto sem rolar */
+        .galeria-page { display: none; padding: 2rem; }
         .voltar { display: inline-block; margin-bottom: 2rem; padding: 0.6rem 1.5rem; background: #333; border-radius: 4px; }
         .voltar:hover { background: #555; }
         .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
@@ -56,7 +56,7 @@
             justify-content: center; align-items: center;
         }
         .tela-cheia img { max-width: 95%; max-height: 90vh; object-fit: contain; }
-        .fechar { position: absolute; top: 1rem; right: 2rem; font-size: 2rem; cursor: pointer; }
+        .fechar { position: absolute; top: 1rem; right: 2rem; font-size: 2rem; cursor: pointer; color: #fff; }
 
         .contato { background: #111; text-align: center; }
         .contato p { margin: 0.5rem 0; }
@@ -107,56 +107,54 @@
             <h3>Eventos Corporativos</h3>
         </div>
     </div>
+
+    <!-- Galerias AQUI MESMO — sem sair do lugar! -->
+    <div class="galeria-page" id="pag-casamento">
+        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
+        <h2>Casamento</h2>
+        <div class="galeria">
+            <img src="Casamento 3.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casamento 4.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casamento 5.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casamento 6.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casamento 7.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casamento 8.jpg" alt="" onclick="abrirImg(this.src)">
+        </div>
+    </div>
+
+    <div class="galeria-page" id="pag-feminina">
+        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
+        <h2>Ensaio Feminino</h2>
+        <div class="galeria">
+            <img src="feminina 1.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 2.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 3.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 4.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 5.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 6.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 7.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 8.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 9.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 10.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 11.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 12.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 13.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="feminina 14.jpg" alt="" onclick="abrirImg(this.src)">
+        </div>
+    </div>
+
+    <div class="galeria-page" id="pag-corporativo">
+        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
+        <h2>Eventos Corporativos</h2>
+        <div class="galeria">
+            <img src="1.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="2.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="3.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="4.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="5.jpg" alt="" onclick="abrirImg(this.src)">
+        </div>
+    </div>
 </section>
-
-<!-- Galeria Casamento -->
-<div class="galeria-page" id="pag-casamento">
-    <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-    <h2>Casamento</h2>
-    <div class="galeria">
-        <img src="Casamento 3.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="Casamento 4.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="Casamento 5.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="Casamento 6.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="Casamento 7.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="Casamento 8.jpg" alt="" onclick="abrirImg(this.src)">
-    </div>
-</div>
-
-<!-- Galeria Feminina -->
-<div class="galeria-page" id="pag-feminina">
-    <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-    <h2>Ensaio Feminino</h2>
-    <div class="galeria">
-        <img src="feminina 1.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 2.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 3.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 4.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 5.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 6.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 7.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 8.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 9.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 10.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 11.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 12.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 13.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="feminina 14.jpg" alt="" onclick="abrirImg(this.src)">
-    </div>
-</div>
-
-<!-- Galeria Corporativo -->
-<div class="galeria-page" id="pag-corporativo">
-    <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-    <h2>Eventos Corporativos</h2>
-    <div class="galeria">
-        <img src="1.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="2.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="3.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="4.jpg" alt="" onclick="abrirImg(this.src)">
-        <img src="5.jpg" alt="" onclick="abrirImg(this.src)">
-    </div>
-</div>
 
 <!-- Contato -->
 <section class="contato">
@@ -168,13 +166,13 @@
 
 <script>
 function abrirAlbum(nome) {
+    // Esconde todos
     document.querySelectorAll('.galeria-page').forEach(p => p.style.display = 'none');
+    // Mostra o escolhido — SEM rolar a página!
     document.getElementById('pag-' + nome).style.display = 'block';
-    window.scrollTo(0, 0);
 }
 function voltar() {
     document.querySelectorAll('.galeria-page').forEach(p => p.style.display = 'none');
-    window.location.hash = 'albuns';
 }
 function abrirImg(src) {
     document.getElementById('imgGrande').src = src;
