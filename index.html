@@ -9,7 +9,6 @@
         body { background: #000; color: #fff; line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
 
-        /* Capa */
         .capa {
             width: 100%;
             height: 100vh;
@@ -28,27 +27,23 @@
         section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
         h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; }
 
-        /* Sobre */
         .sobre { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
         .sobre-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; }
         .sobre-texto { flex: 1; min-width: 300px; }
 
-        /* Álbuns */
         .albuns { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
         .album-card { background: #1a1a1a; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s; }
         .album-card:hover { transform: translateY(-5px); }
         .album-card img { width: 100%; height: 180px; object-fit: cover; }
         .album-card h3 { padding: 1rem; text-align: center; font-size: 1.1rem; }
 
-        /* Galeria — aparece direto sem rolar */
-        .galeria-page { display: none; padding: 2rem; }
+        .galeria-page { display: none; padding: 2rem 0; }
         .voltar { display: inline-block; margin-bottom: 2rem; padding: 0.6rem 1.5rem; background: #333; border-radius: 4px; }
         .voltar:hover { background: #555; }
         .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
         .galeria img { width: 100%; height: 250px; object-fit: cover; cursor: pointer; border-radius: 4px; transition: 0.3s; }
         .galeria img:hover { opacity: 0.8; }
 
-        /* Tela cheia */
         .tela-cheia {
             display: none; position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -65,20 +60,17 @@
 </head>
 <body>
 
-<!-- Tela cheia -->
 <div class="tela-cheia" id="telaCheia" onclick="fecharTela()">
     <span class="fechar">&times;</span>
     <img id="imgGrande" src="" alt="">
 </div>
 
-<!-- Capa -->
 <div class="capa" id="inicio">
     <h1>rafa.mídia</h1>
     <p>Fotografia que conta histórias</p>
     <a href="#albuns" class="btn">Ver Portfólio</a>
 </div>
 
-<!-- Sobre -->
 <section class="sobre-section">
     <h2>Quem Sou</h2>
     <div class="sobre">
@@ -90,7 +82,6 @@
     </div>
 </section>
 
-<!-- Álbuns -->
 <section id="albuns">
     <h2>Meus Trabalhos</h2>
     <div class="albuns">
@@ -102,13 +93,17 @@
             <img src="feminina 1.jpg" alt="Ensaio Feminino">
             <h3>Ensaio Feminino</h3>
         </div>
+        <div class="album-card" onclick="abrirAlbum('casal')">
+            <img src="Casal9.jpg" alt="Ensaio de Casal">
+            <h3>Ensaio de Casal</h3>
+        </div>
         <div class="album-card" onclick="abrirAlbum('corporativo')">
             <img src="1.jpg" alt="Eventos Corporativos">
             <h3>Eventos Corporativos</h3>
         </div>
     </div>
 
-    <!-- Galerias AQUI MESMO — sem sair do lugar! -->
+    <!-- Casamento -->
     <div class="galeria-page" id="pag-casamento">
         <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
         <h2>Casamento</h2>
@@ -122,6 +117,7 @@
         </div>
     </div>
 
+    <!-- Ensaio Feminino -->
     <div class="galeria-page" id="pag-feminina">
         <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
         <h2>Ensaio Feminino</h2>
@@ -143,6 +139,30 @@
         </div>
     </div>
 
+    <!-- Ensaio de Casal — Casal9 em PRIMEIRO! -->
+    <div class="galeria-page" id="pag-casal">
+        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
+        <h2>Ensaio de Casal</h2>
+        <div class="galeria">
+            <img src="Casal9.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal1.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal2.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal3.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal4.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal5.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal6.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal7.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal8.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal11.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal12.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal13.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal14.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal15.jpg" alt="" onclick="abrirImg(this.src)">
+            <img src="Casal16.jpg" alt="" onclick="abrirImg(this.src)">
+        </div>
+    </div>
+
+    <!-- Corporativo -->
     <div class="galeria-page" id="pag-corporativo">
         <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
         <h2>Eventos Corporativos</h2>
@@ -156,7 +176,6 @@
     </div>
 </section>
 
-<!-- Contato -->
 <section class="contato">
     <h2>Contato</h2>
     <p>📧 rafa27crush@hotmail.com</p>
@@ -166,9 +185,7 @@
 
 <script>
 function abrirAlbum(nome) {
-    // Esconde todos
     document.querySelectorAll('.galeria-page').forEach(p => p.style.display = 'none');
-    // Mostra o escolhido — SEM rolar a página!
     document.getElementById('pag-' + nome).style.display = 'block';
 }
 function voltar() {
