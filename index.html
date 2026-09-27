@@ -1,282 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafa.Mídia | Fotógrafo</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { color: #333; line-height: 1.6; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rafa.mídia | Fotógrafo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #000; color: #fff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
 
-    .capa {
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Capa.jpg') center/cover no-repeat;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      color: white; text-align: center;
-    }
-    .capa h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
-    .capa p { font-size: 1.3rem; margin-bottom: 2rem; }
-    .btn { padding: 12px 30px; background: #d4af37; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; transition: 0.3s; }
-    .btn:hover { background: #b8962c; }
+        /* Capa */
+        .capa {
+            width: 100%;
+            height: 100vh;
+            background: url('Capa.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .capa h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
+        .capa p { font-size: 1.3rem; margin: 1rem 0 2rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.8); }
+        .btn { padding: 0.8rem 2rem; background: #fff; color: #000; border-radius: 4px; font-weight: 600; transition: 0.3s; }
+        .btn:hover { background: #ddd; }
 
-    .sobre { padding: 80px 0; background: #f9f9f9; }
-    .sobre .container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-    .sobre-img { width: 300px; height: 300px; object-fit: cover; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    .sobre-texto { flex: 1; min-width: 300px; }
-    .sobre-texto h2 { font-size: 2rem; margin-bottom: 1rem; color: #222; }
+        section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; }
 
-    .servicos { padding: 80px 0; }
-    .servicos h2 { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: #222; }
-    .servicos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-    .servico-card {
-      background: white; padding: 30px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      cursor: pointer; transition: 0.3s; text-align: center;
-    }
-    .servico-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-    .servico-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #d4af37; }
+        /* Sobre */
+        .sobre { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+        .sobre-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; }
+        .sobre-texto { flex: 1; min-width: 300px; }
 
-    .album-section { padding: 80px 0; display: none; }
-    .album-section:target { display: block; }
-    .album-titulo { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: #222; }
-    .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-    .foto-item { overflow: hidden; border-radius: 6px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .foto-item img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.4s; }
-    .foto-item:hover img { transform: scale(1.08); }
-    .btn-voltar { display: inline-block; margin-top: 40px; color: #d4af37; text-decoration: none; font-weight: bold; }
-    .btn-voltar:hover { text-decoration: underline; }
+        /* Álbuns */
+        .albuns { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .album-card { background: #1a1a1a; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s; }
+        .album-card:hover { transform: translateY(-5px); }
+        .album-card img { width: 100%; height: 180px; object-fit: cover; }
+        .album-card h3 { padding: 1rem; text-align: center; font-size: 1.1rem; }
 
-    .contato { padding: 80px 0; background: #222; color: white; text-align: center; }
-    .contato h2 { font-size: 2rem; margin-bottom: 30px; }
-    .contato p { margin: 10px 0; font-size: 1.1rem; }
-    .contato a { color: #d4af37; text-decoration: none; }
+        /* Galeria */
+        .galeria-page { display: none; min-height: 100vh; padding: 2rem; }
+        .voltar { display: inline-block; margin-bottom: 2rem; padding: 0.6rem 1.5rem; background: #333; border-radius: 4px; }
+        .voltar:hover { background: #555; }
+        .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+        .galeria img { width: 100%; height: 250px; object-fit: cover; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .galeria img:hover { opacity: 0.8; }
 
-    .overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);
-      display: none; justify-content: center; align-items: center; z-index: 9999;
-    }
-    .overlay-img { max-width: 90%; max-height: 90%; object-fit: contain; }
-    .fechar { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; text-decoration: none; }
-  </style>
+        /* Tela cheia */
+        .tela-cheia {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 999;
+            justify-content: center; align-items: center;
+        }
+        .tela-cheia img { max-width: 95%; max-height: 90vh; object-fit: contain; }
+        .fechar { position: absolute; top: 1rem; right: 2rem; font-size: 2rem; cursor: pointer; }
+
+        .contato { background: #111; text-align: center; }
+        .contato p { margin: 0.5rem 0; }
+        .contato a { color: #ffd700; }
+    </style>
 </head>
 <body>
 
-<section class="capa">
-  <h1>Rafa.Mídia</h1>
-  <p>Fotógrafo Profissional</p>
-  <a href="#sobre" class="btn">Conhecer Mais</a>
-</section>
-
-<section class="sobre" id="sobre">
-  <div class="container">
-    <img src="perfil.jpg" class="sobre-img" alt="Rafa Rodrigues - Fotógrafo">
-    <div class="sobre-texto">
-      <h2>Sobre Mim</h2>
-      <p>Olá! Sou Rafa Rodrigues, fotógrafo apaixonado por capturar momentos únicos e eternos. Com olhar atento e sensível, transformo cada instante em memória que dura para sempre. Especializado em casamentos, eventos e ensaios, faço de cada fotografia uma história para contar.</p>
-    </div>
-  </div>
-</section>
-
-<section class="servicos" id="servicos">
-  <div class="container">
-    <h2>Meus Serviços</h2>
-    <div class="servicos-grid">
-      <div class="servico-card" onclick="window.location.href='#casamento'">
-        <h3>💒 Casamento</h3>
-        <p>Registrando o amor em cada detalhe do seu dia especial.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#corporativo'">
-        <h3>🏢 Eventos Corporativos</h3>
-        <p>Imagens profissionais para o sucesso do seu negócio.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#masculino'">
-        <h3>👔 Ensaio Masculino</h3>
-        <p>Estilo, confiança e personalidade em cada clique.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#feminino'">
-        <h3>📸 Ensaio Feminino</h3>
-        <p>Ensaios personalizados, beleza, autoestima e elegância.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#esportivos'">
-        <h3>🏆 Eventos Esportivos</h3>
-        <p>A adrenalina e a paixão pelo esporte registradas em movimento.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#casal'">
-        <h3>💑 Ensaio de Casal</h3>
-        <p>Amor e cumplicidade em belas fotografias juntos.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#aniversario'">
-        <h3>🎂 Aniversário Infantil</h3>
-        <p>A alegria das crianças em cada momento da festa.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#formatura'">
-        <h3>🎓 Formatura</h3>
-        <p>O marco da conquista celebrado com imagens inesquecíveis.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#retratos'">
-        <h3>🖼️ Retratos</h3>
-        <p>A essência de cada pessoa capturada com sensibilidade.</p>
-      </div>
-      <div class="servico-card" onclick="window.location.href='#urbanos'">
-        <h3>🏙️ Urbanos</h3>
-        <p>Beleza e arte nas ruas e cenários da cidade.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ÁLBUM CASAMENTO -->
-<section class="album-section" id="casamento">
-  <div class="container">
-    <h2 class="album-titulo">Casamento</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('Casamento 3.jpg')"><img src="Casamento 3.jpg" alt="Casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('Casamento 4.jpg')"><img src="Casamento 4.jpg" alt="Casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('Casamento 5.jpg')"><img src="Casamento 5.jpg" alt="Casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('Casamento 6.jpg')"><img src="Casamento 6.jpg" alt="Casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('Casamento 7.jpg')"><img src="Casamento 7.jpg" alt="Casamento"></div>
-      <div class="foto-item" onclick="abrirImagem('Casamento 8.jpg')"><img src="Casamento 8.jpg" alt="Casamento"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM FEMININO — TODAS AS 14 FOTOS! ✅ -->
-<section class="album-section" id="feminino">
-  <div class="container">
-    <h2 class="album-titulo">Ensaio Feminino</h2>
-    <div class="galeria">
-      <div class="foto-item" onclick="abrirImagem('feminina 1.jpg')"><img src="feminina 1.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 2.jpg')"><img src="feminina 2.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 3.jpg')"><img src="feminina 3.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 4.jpg')"><img src="feminina 4.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 5.jpg')"><img src="feminina 5.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 6.jpg')"><img src="feminina 6.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 7.jpg')"><img src="feminina 7.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 8.jpg')"><img src="feminina 8.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 9.jpg')"><img src="feminina 9.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 10.jpg')"><img src="feminina 10.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 11.jpg')"><img src="feminina 11.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 12.jpg')"><img src="feminina 12.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 13.jpg')"><img src="feminina 13.jpg" alt="Ensaio Feminino"></div>
-      <div class="foto-item" onclick="abrirImagem('feminina 14.jpg')"><img src="feminina 14.jpg" alt="Ensaio Feminino"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: EVENTOS CORPORATIVOS -->
-<section class="album-section" id="corporativo">
-  <div class="container">
-    <h2 class="album-titulo">Eventos Corporativos</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="corporativo-1.jpg" alt="Evento Corporativo"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: ENSAIO MASCULINO -->
-<section class="album-section" id="masculino">
-  <div class="container">
-    <h2 class="album-titulo">Ensaio Masculino</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="masculino-1.jpg" alt="Ensaio Masculino"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: EVENTOS ESPORTIVOS -->
-<section class="album-section" id="esportivos">
-  <div class="container">
-    <h2 class="album-titulo">Eventos Esportivos</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="esportivo-1.jpg" alt="Evento Esportivo"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: ENSAIO DE CASAL -->
-<section class="album-section" id="casal">
-  <div class="container">
-    <h2 class="album-titulo">Ensaio de Casal</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="casal-1.jpg" alt="Ensaio de Casal"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: ANIVERSÁRIO INFANTIL -->
-<section class="album-section" id="aniversario">
-  <div class="container">
-    <h2 class="album-titulo">Aniversário Infantil</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="aniversario-1.jpg" alt="Aniversário Infantil"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: FORMATURA -->
-<section class="album-section" id="formatura">
-  <div class="container">
-    <h2 class="album-titulo">Formatura</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="formatura-1.jpg" alt="Formatura"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: RETRATOS -->
-<section class="album-section" id="retratos">
-  <div class="container">
-    <h2 class="album-titulo">Retratos</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="retrato-1.jpg" alt="Retrato"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<!-- ÁLBUM: URBANOS -->
-<section class="album-section" id="urbanos">
-  <div class="container">
-    <h2 class="album-titulo">Urbanos</h2>
-    <div class="galeria">
-      <div class="foto-item"><img src="urbano-1.jpg" alt="Urbano"></div>
-    </div>
-    <a href="#servicos" class="btn-voltar">← Voltar para Serviços</a>
-  </div>
-</section>
-
-<section class="contato" id="contato">
-  <div class="container">
-    <h2>Entre em Contato</h2>
-    <p>📧 Email: <a href="mailto:rafa27crush@hotmail.com">rafa27crush@hotmail.com</a></p>
-    <p>📱 Telefone: <a href="tel:+5511939085800">(11) 93908-5800</a></p>
-    <p>📷 Instagram: <a href="https://www.instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
-  </div>
-</section>
-
-<div class="overlay" id="overlay" onclick="fecharImagem()">
-  <a href="#" class="fechar" onclick="fecharImagem(); return false;">&times;</a>
-  <img src="" alt="Imagem em tela cheia" class="overlay-img" id="overlay-img">
+<!-- Tela cheia -->
+<div class="tela-cheia" id="telaCheia" onclick="fecharTela()">
+    <span class="fechar">&times;</span>
+    <img id="imgGrande" src="" alt="">
 </div>
 
+<!-- Capa -->
+<div class="capa" id="inicio">
+    <h1>rafa.mídia</h1>
+    <p>Fotografia que conta histórias</p>
+    <a href="#albuns" class="btn">Ver Portfólio</a>
+</div>
+
+<!-- Sobre -->
+<section class="sobre-section">
+    <h2>Quem Sou</h2>
+    <div class="sobre">
+        <img src="perfil.jpg" class="sobre-img" alt="Rafa Rodrigues">
+        <div class="sobre-texto">
+            <h3>Rafa Rodrigues</h3>
+            <p>Fotógrafo apaixonado por registrar momentos únicos e especiais. Trabalho com casamentos, eventos, ensaios e muito mais. Cada foto é feita com carinho e dedicação para eternizar sua história.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Álbuns -->
+<section id="albuns">
+    <h2>Meus Trabalhos</h2>
+    <div class="albuns">
+        <div class="album-card" onclick="abrirAlbum('casamento')">
+            <img src="Casamento 3.jpg" alt="Casamento">
+            <h3>Casamento</h3>
+        </div>
+        <div class="album-card" onclick="abrirAlbum('feminino')">
+            <img src="feminino1.jpg" alt="Ensaio Feminino">
+            <h3>Ensaio Feminino</h3>
+        </div>
+        <div class="album-card" onclick="abrirAlbum('corporativo')">
+            <img src="1.jpg" alt="Eventos Corporativos">
+            <h3>Eventos Corporativos</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Galeria Casamento -->
+<div class="galeria-page" id="pag-casamento">
+    <a href="#albuns" class="voltar" onclick="voltar()">← Voltar</a>
+    <h2>Casamento</h2>
+    <div class="galeria">
+        <img src="Casamento 3.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="casamento1.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="casamento2.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="casamento4.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="casamento5.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="casamento6.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="casamento7.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="casamento8.jpg" alt="" onclick="abrirImg(this.src)">
+    </div>
+</div>
+
+<!-- Galeria Feminino -->
+<div class="galeria-page" id="pag-feminino">
+    <a href="#albuns" class="voltar" onclick="voltar()">← Voltar</a>
+    <h2>Ensaio Feminino</h2>
+    <div class="galeria">
+        <img src="feminino1.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino2.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino3.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino4.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino5.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino6.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino7.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino8.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino9.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino10.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino11.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino12.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino13.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="feminino14.jpg" alt="" onclick="abrirImg(this.src)">
+    </div>
+</div>
+
+<!-- Galeria Corporativo -->
+<div class="galeria-page" id="pag-corporativo">
+    <a href="#albuns" class="voltar" onclick="voltar()">← Voltar</a>
+    <h2>Eventos Corporativos</h2>
+    <div class="galeria">
+        <img src="1.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="2.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="3.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="4.jpg" alt="" onclick="abrirImg(this.src)">
+        <img src="5.jpg" alt="" onclick="abrirImg(this.src)">
+    </div>
+</div>
+
+<!-- Contato -->
+<section class="contato">
+    <h2>Contato</h2>
+    <p>📧 <a href="mailto:rafa27crush@hotmail.com">rafa27crush@hotmail.com</a></p>
+    <p>📱 (11) 93908-5800</p>
+    <p>📸 <a href="https://www.instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
+</section>
+
 <script>
-function abrirImagem(src) {
-  document.getElementById('overlay-img').src = src;
-  document.getElementById('overlay').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+function abrirAlbum(nome) {
+    document.querySelectorAll('.galeria-page').forEach(p => p.style.display = 'none');
+    document.getElementById('pag-' + nome).style.display = 'block';
+    window.scrollTo(0,0);
 }
-function fecharImagem() {
-  document.getElementById('overlay').style.display = 'none';
-  document.body.style.overflow = 'auto';
+function voltar() {
+    document.querySelectorAll('.galeria-page').forEach(p => p.style.display = 'none');
+    window.location.hash = 'albuns';
+}
+function abrirImg(src) {
+    document.getElementById('imgGrande').src = src;
+    document.getElementById('telaCheia').style.display = 'flex';
+}
+function fecharTela() {
+    document.getElementById('telaCheia').style.display = 'none';
 }
 </script>
 
