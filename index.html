@@ -1,259 +1,161 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt‑BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rafa.mídia | Fotógrafo</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #000; color: #fff; line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-
-        .capa {
-            width: 100%; height: 100vh;
-            background: url('Capa.jpg') center/cover no-repeat;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-        }
-        .capa h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
-        .capa p { font-size: 1.3rem; margin: 1rem 0 2rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.8); }
-        .btn { padding: 0.8rem 2rem; background: #fff; color: #000; border-radius: 4px; font-weight: 600; transition: 0.3s; }
-        .btn:hover { background: #ddd; }
-
-        section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
-        h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; }
-
-        .sobre { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
-        .sobre-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; }
-        .sobre-texto { flex: 1; min-width: 300px; }
-
-        .albuns { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .album-card { background: #1a1a1a; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.3s; }
-        .album-card:hover { transform: translateY(-5px); }
-        .album-card img { width: 100%; height: 180px; object-fit: cover; }
-        .album-card h3 { padding: 1rem; text-align: center; font-size: 1.1rem; }
-
-        .galeria-page { display: none; padding: 2rem 0; }
-        .voltar { display: inline-block; margin-bottom: 2rem; padding: 0.6rem 1.5rem; background: #333; border-radius: 4px; }
-        .voltar:hover { background: #555; }
-        .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-        .galeria img { width: 100%; height: 250px; object-fit: cover; cursor: pointer; border-radius: 4px; transition: 0.3s; }
-        .galeria img:hover { opacity: 0.8; }
-
-        .tela-cheia {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.95); z-index: 999;
-            justify-content: center; align-items: center;
-        }
-        .tela-cheia img { max-width: 95%; max-height: 90vh; object-fit: contain; }
-        .fechar { position: absolute; top: 1rem; right: 2rem; font-size: 2rem; cursor: pointer; color: #fff; }
-
-        .contato { background: #111; text-align: center; }
-        .contato p { margin: 0.5rem 0; }
-        .contato a { color: #ffd700; }
-    </style>
+<meta charset="UTF‑8">
+<meta name="viewport" content="width=device‑width, initial‑scale=1.0">
+<title>Portfólio Fotografia e Vídeo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f8f8f8;color:#222;line-height:1.6}
+.capa{width:100%;height:320px;object-fit:cover}
+.perfil{width:140px;height:140px;border-radius:50%;margin:-70px auto 20px;display:block;border:4px solid #fff;background:#ddd}
+.container{max-width:1000px;margin:0 auto;padding:20px}
+.servicos{display:grid;grid-template-columns:repeat(auto‑fit,minmax(220px,1fr));gap:20px;margin:40px 0}
+.card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 2px 8px #0002;cursor:pointer;text-align:center}
+.album{display:none;margin:30px 0}
+.galeria{display:grid;grid-template-columns:repeat(auto‑fit,minmax(140px,1fr));gap:12px}
+.galeria img{width:100%;height:180px;object-fit:cover;border-radius:6px;cursor:pointer}
+.luz{position:fixed;top:0;left:0;width:100%;height:100%;background:#000d;display:none;align-items:center;justify-content:center;z-index:999}
+.luz img{max-width:92%;max-height:92%}
+button{margin-top:24px;padding:10px 18px;border:none;background:#222;color:#fff;border-radius:6px;font-size:16px;cursor:pointer}
+</style>
 </head>
 <body>
+<img src="capa.jpg" class="capa" alt="Capa do portfólio">
+<img src="perfil.jpg" class="perfil" alt="Foto de perfil">
+<div class="container">
+<h1 style="text-align:center">Raffa Rodrigues | Fotografia e Vídeo</h1>
+<p style="text-align:center;margin-bottom:30px">Fotografia de eventos, retratos e produção audiovisual</p>
 
-<div class="tela-cheia" id="telaCheia" onclick="fecharTela()">
-    <span class="fechar">&times;</span>
-    <img id="imgGrande" src="" alt="">
+<div class="servicos" id="lista‑servicos">
+  <div class="card" onclick="mostrarAlbum('casamento')">Casamentos</div>
+  <div class="card" onclick="mostrarAlbum('feminino')">Ensaio Feminino</div>
+  <div class="card" onclick="mostrarAlbum('casal')">Ensaio de Casal</div>
+  <div class="card" onclick="mostrarAlbum('retrato')">Retratos</div>
+  <div class="card" onclick="mostrarAlbum('corporativo')">Eventos Corporativos</div>
+  <div class="card" onclick="mostrarAlbum('esportivo')">Eventos Esportivos</div>
 </div>
 
-<div class="capa" id="inicio">
-    <h1>rafa.mídia</h1>
-    <p>Fotografia que conta histórias</p>
-    <a href="#albuns" class="btn">Ver Portfólio</a>
+<!-- Álbum Casamento -->
+<section id="casamento" class="album">
+  <h2>Casamentos</h2>
+  <div class="galeria">
+    <img src="casamento‑1.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+    <img src="casamento‑2.jpg" alt="Casamento" onclick="abrirFoto(this.src)">
+  </div>
+  <button onclick="voltarParaServicos()">Voltar</button>
+</section>
+
+<!-- Álbum Ensaio Feminino -->
+<section id="feminino" class="album">
+  <h2>Ensaio Feminino</h2>
+  <div class="galeria">
+    <img src="feminina‑1.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑2.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑3.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑4.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑5.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑6.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑7.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑8.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑9.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑10.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑11.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑12.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑13.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+    <img src="feminina‑14.jpg" alt="Ensaio feminino" onclick="abrirFoto(this.src)">
+  </div>
+  <button onclick="voltarParaServicos()">Voltar</button>
+</section>
+
+<!-- Álbum Ensaio de Casal -->
+<section id="casal" class="album">
+  <h2>Ensaio de Casal</h2>
+  <div class="galeria">
+    <img src="casal‑9.jpeg" alt="Ensaio de casal" onclick="abrirFoto(this.src)">
+    <img src="casal‑1.jpeg" alt="Ensaio de casal" onclick="abrirFoto(this.src)">
+    <img src="casal‑2.jpeg" alt="Ensaio de casal" onclick="abrirFoto(this.src)">
+    <img src="casal‑13.jpeg" alt="Ensaio de casal" onclick="abrirFoto(this.src)">
+    <img src="casal‑15.jpeg" alt="Ensaio de casal" onclick="abrirFoto(this.src)">
+    <img src="casal‑16.jpeg" alt="Ensaio de casal" onclick="abrirFoto(this.src)">
+  </div>
+  <button onclick="voltarParaServicos()">Voltar</button>
+</section>
+
+<!-- Álbum Retratos -->
+<section id="retrato" class="album">
+  <h2>Retratos</h2>
+  <div class="galeria">
+    <img src="retrato‑1.jpg" alt="Retrato" onclick="abrirFoto(this.src)">
+    <img src="retrato‑3.jpg" alt="Retrato" onclick="abrirFoto(this.src)">
+    <img src="retrato‑4.jpg" alt="Retrato" onclick="abrirFoto(this.src)">
+    <img src="retrato‑5.jpg" alt="Retrato" onclick="abrirFoto(this.src)">
+    <img src="retrato‑6.jpg" alt="Retrato" onclick="abrirFoto(this.src)">
+  </div>
+  <button onclick="voltarParaServicos()">Voltar</button>
+</section>
+
+<!-- Álbum Eventos Corporativos -->
+<section id="corporativo" class="album">
+  <h2>Eventos Corporativos</h2>
+  <div class="galeria">
+    <img src="corporativo‑1.jpg" alt="Evento corporativo" onclick="abrirFoto(this.src)">
+    <img src="corporativo‑2.jpg" alt="Evento corporativo" onclick="abrirFoto(this.src)">
+  </div>
+  <button onclick="voltarParaServicos()">Voltar</button>
+</section>
+
+<!-- Álbum Eventos Esportivos (CORRIGIDO) -->
+<section id="esportivo" class="album">
+  <h2>Eventos Esportivos</h2>
+  <div class="galeria">
+    <img src="esportivo‑1.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑2.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑3.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑4.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑5.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑6.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑7.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑8.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑9.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑10.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑12.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑13.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑14.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑15.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑17.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑19.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑20.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑21.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑22.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+    <img src="esportivo‑23.jpg" alt="Evento esportivo" onclick="abrirFoto(this.src)">
+  </div>
+  <button onclick="voltarParaServicos()">Voltar</button>
+</section>
+
+<!-- Tela de foto ampliada -->
+<div class="luz" id="tela‑foto" onclick="fecharFoto()">
+  <img id="foto‑grande" src="" alt="Foto ampliada">
 </div>
-
-<section class="sobre-section">
-    <h2>Quem Sou</h2>
-    <div class="sobre">
-        <img src="perfil.jpg" class="sobre-img" alt="Rafa Rodrigues">
-        <div class="sobre-texto">
-            <h3>Rafa Rodrigues</h3>
-            <p>Fotógrafo apaixonado por registrar momentos únicos e especiais.</p>
-        </div>
-    </div>
-</section>
-
-<section id="albuns">
-    <h2>Meus Trabalhos</h2>
-    <div class="albuns">
-        <div class="album-card" onclick="abrirAlbum('casamento')">
-            <img src="Casamento 3.jpg" alt="Casamento">
-            <h3>Casamento</h3>
-        </div>
-        <div class="album-card" onclick="abrirAlbum('feminina')">
-            <img src="feminina 1.jpg" alt="Ensaio Feminino">
-            <h3>Ensaio Feminino</h3>
-        </div>
-        <div class="album-card" onclick="abrirAlbum('casal')">
-            <img src="Casal9.jpg" alt="Ensaio de Casal">
-            <h3>Ensaio de Casal</h3>
-        </div>
-        <div class="album-card" onclick="abrirAlbum('retrato')">
-            <img src="Retrato 1.jpg" alt="Retratos">
-            <h3>Retratos</h3>
-        </div>
-        <div class="album-card" onclick="abrirAlbum('esportivo')">
-            <img src="esporte2.jpg" alt="Eventos Esportivos">
-            <h3>Eventos Esportivos</h3>
-        </div>
-        <div class="album-card" onclick="abrirAlbum('corporativo')">
-            <img src="1.jpg" alt="Eventos Corporativos">
-            <h3>Eventos Corporativos</h3>
-        </div>
-    </div>
-
-    <!-- Casamento -->
-    <div class="galeria-page" id="pag-casamento">
-        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-        <h2>Casamento</h2>
-        <div class="galeria">
-            <img src="Casamento 3.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casamento 4.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casamento 5.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casamento 6.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casamento 7.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casamento 8.jpg" alt="" onclick="abrirImg(this.src)">
-        </div>
-    </div>
-
-    <!-- Ensaio Feminino -->
-    <div class="galeria-page" id="pag-feminina">
-        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-        <h2>Ensaio Feminino</h2>
-        <div class="galeria">
-            <img src="feminina 1.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 2.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 3.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 4.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 5.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 6.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 7.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 8.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 9.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 10.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 11.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 12.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 13.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="feminina 14.jpg" alt="" onclick="abrirImg(this.src)">
-        </div>
-    </div>
-
-    <!-- Ensaio de Casal -->
-    <div class="galeria-page" id="pag-casal">
-        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-        <h2>Ensaio de Casal</h2>
-        <div class="galeria">
-            <img src="Casal9.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal1.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal2.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal3.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal4.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal5.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal6.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal7.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal8.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal11.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal12.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal13.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal14.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal15.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Casal16.jpg" alt="" onclick="abrirImg(this.src)">
-        </div>
-    </div>
-
-    <!-- Retratos -->
-    <div class="galeria-page" id="pag-retrato">
-        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-        <h2>Retratos</h2>
-        <div class="galeria">
-            <img src="Retrato 1.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 2.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 3.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 4.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 5.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 6.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 10.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 11.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 12.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 13.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 14.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 15.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 16.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 17.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 18.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 19.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 20.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 21.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 22.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 23.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 24.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="Retrato 25.jpg" alt="" onclick="abrirImg(this.src)">
-        </div>
-    </div>
-
-    <!-- Eventos Esportivos → NOMES EXATOS! -->
-    <div class="galeria-page" id="pag-esportivo">
-        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-        <h2>Eventos Esportivos</h2>
-        <div class="galeria">
-            <img src="esporte1.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte2.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte3.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte5.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte6.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte8.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte10.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte12.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte15.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte18.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte20.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte21.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte22.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="esporte23.jpg" alt="" onclick="abrirImg(this.src)">
-        </div>
-    </div>
-
-    <!-- Corporativo -->
-    <div class="galeria-page" id="pag-corporativo">
-        <a href="#albuns" class="voltar" onclick="voltar(); return false;">← Voltar</a>
-        <h2>Eventos Corporativos</h2>
-        <div class="galeria">
-            <img src="1.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="2.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="3.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="4.jpg" alt="" onclick="abrirImg(this.src)">
-            <img src="5.jpg" alt="" onclick="abrirImg(this.src)">
-        </div>
-    </div>
-</section>
-
-<section class="contato">
-    <h2>Contato</h2>
-    <p>📧 rafa27crush@hotmail.com</p>
-    <p>📱 (11) 93908-5800</p>
-    <p>📸 <a href="https://www.instagram.com/raffaframes" target="_blank">@raffaframes</a></p>
-</section>
 
 <script>
-function abrirAlbum(nome) {
-    document.querySelectorAll('.galeria-page').forEach(p => p.style.display = 'none');
-    document.getElementById('pag-' + nome).style.display = 'block';
+function mostrarAlbum(id){
+  document.querySelectorAll('.album').forEach(a=>a.style.display='none');
+  document.getElementById(id).style.display='block';
+  window.scrollTo(0,document.getElementById(id).offsetTop);
 }
-function voltar() {
-    document.querySelectorAll('.galeria-page').forEach(p => p.style.display = 'none');
+function voltarParaServicos(){
+  document.querySelectorAll('.album').forEach(a=>a.style.display='none');
+  window.scrollTo(0,0);
 }
-function abrirImg(src) {
-    document.getElementById('imgGrande').src = src;
-    document.getElementById('telaCheia').style.display = 'flex';
+function abrirFoto(caminho){
+  document.getElementById('foto‑grande').src=caminho;
+  document.getElementById('tela‑foto').style.display='flex';
 }
-function fecharTela() {
-    document.getElementById('telaCheia').style.display = 'none';
+function fecharFoto(){
+  document.getElementById('tela‑foto').style.display='none';
 }
 </script>
-
+</div>
 </body>
 </html>
